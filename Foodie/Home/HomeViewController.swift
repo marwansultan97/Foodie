@@ -114,8 +114,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.popTip?.text = self.viewModel.randomJoke?.text
         }
         
-//        viewModel.getRecipes(pagination: false)
-//        viewModel.getJoke()
+        viewModel.getRecipes(pagination: false)
+        viewModel.getJoke()
         
     }
     
@@ -132,7 +132,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         searchMenu.anchorView = navigationItem.rightBarButtonItem
         searchMenu.dataSource = ["Search Recipes by Name","Search Recipes With Filters"]
-        searchMenu.backgroundColor = .white
+        searchMenu.backgroundColor = FlatBlue()
+        searchMenu.textColor = .white
+        searchMenu.selectionBackgroundColor = FlatBlueDark()
         searchMenu.bottomOffset = CGPoint(x: 0, y: (navigationController?.navigationBar.frame.height)!)
         searchMenu.selectionBackgroundColor = UIColor.white.darken(byPercentage: 0.1)
         searchMenu.selectionAction = { [weak self] (index,item) in
