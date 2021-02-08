@@ -82,6 +82,10 @@ class HomeViewModel {
         
     }
     
+    deinit {
+        print("HOME VM gone")
+    }
+    
     func getJoke() {
         let url = Endpoints.randomTrivia.url
         ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (joke: RandomJoke?, err) in

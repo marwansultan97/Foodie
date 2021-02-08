@@ -250,7 +250,9 @@ struct Metric: Codable {
 
 enum Gaps: String, Codable {
     case gaps3 = "GAPS_3"
+    case gaps4 = "GAPS_4"
     case gaps5 = "GAPS_5"
+    case gapsfull = "GAPS_FULL"
     case no = "no"
 }
 

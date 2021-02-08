@@ -157,10 +157,13 @@ class SearchRecipeFilterViewController: UIViewController {
         }
         cuisineDropDown.selectionAction = { [weak self] (index, item) in
             guard let self = self else { return }
+            self.cuisineButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[1].value = ""
+                self.cuisineButton.setTitle("Cuisines", for: .normal)
             } else {
                 self.url?.queryItems?[1].value = item
+                self.cuisineButton.setTitle(item, for: .normal)
             }
             print(self.url!)
         }
@@ -176,10 +179,13 @@ class SearchRecipeFilterViewController: UIViewController {
         }
         dietDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
+            self.dietButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[2].value = ""
+                self.dietButton.setTitle("Diet", for: .normal)
             } else {
                 self.url?.queryItems?[2].value = item
+                self.dietButton.setTitle(item, for: .normal)
             }
             print(self.url!)
         }
@@ -195,10 +201,13 @@ class SearchRecipeFilterViewController: UIViewController {
         }
         mealTypesDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
+            self.mealTypeButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[3].value = ""
+                self.mealTypeButton.setTitle("Meal Type", for: .normal)
             } else {
                 self.url?.queryItems?[3].value = item
+                self.mealTypeButton.setTitle(item, for: .normal)
             }
             print(self.url!)
         }
@@ -214,11 +223,14 @@ class SearchRecipeFilterViewController: UIViewController {
         }
         timeDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
+            self.readyTimeButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[4].value = "1000"
+                self.readyTimeButton.setTitle("Ready Time", for: .normal)
             } else {
                 let time = item.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
                 self.url?.queryItems?[4].value = time
+                self.readyTimeButton.setTitle(item, for: .normal)
             }
             print(self.url!)
         }
@@ -298,6 +310,8 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
         let imageURL = URL(string: "https://spoonacular.com/recipeImages/\(element.id)-556x370.jpg")
         cell.recipeImage.sd_setImage(with: imageURL, completed: nil)
         cell.recipeName.text = element.title
+        cell.recipeName.adjustsFontSizeToFitWidth = true
+        cell.recipeName.minimumScaleFactor = 0.5
         return cell
     }
     
@@ -340,7 +354,6 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
             self.tableView.tableFooterView = UIView()
             return
         }
-        print("passed")
         self.tableView.tableFooterView = viewModel.isPaginating ? self.footerPaginationView : UIView()
         if postition > contentHeight - scrollViewHeight + 70 {
             guard !viewModel.isPaginating else { return }

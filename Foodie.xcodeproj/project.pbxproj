@@ -15,7 +15,6 @@
 		CB38DA6625C1B4200011A820 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB38DA6425C1B4200011A820 /* LaunchScreen.storyboard */; };
 		CB38DA7025C1B4690011A820 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DA6F25C1B4690011A820 /* ApiServices.swift */; };
 		CB38DA8525C1B60C0011A820 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DA8425C1B60C0011A820 /* Endpoints.swift */; };
-		CB38DA8925C209800011A820 /* MyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DA8825C209800011A820 /* MyConstants.swift */; };
 		CB38DA9025C212040011A820 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DA8F25C212040011A820 /* HomeViewController.swift */; };
 		CB38DA9325C2120F0011A820 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB38DA9225C2120F0011A820 /* Home.storyboard */; };
 		CB38DA9825C214E10011A820 /* RandomRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DA9725C214E10011A820 /* RandomRecipes.swift */; };
@@ -53,7 +52,6 @@
 		CB38DA6725C1B4200011A820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB38DA6F25C1B4690011A820 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		CB38DA8425C1B60C0011A820 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
-		CB38DA8825C209800011A820 /* MyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConstants.swift; sourceTree = "<group>"; };
 		CB38DA8F25C212040011A820 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CB38DA9225C2120F0011A820 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CB38DA9725C214E10011A820 /* RandomRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipes.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				CB38DA8425C1B60C0011A820 /* Endpoints.swift */,
-				CB38DA8825C209800011A820 /* MyConstants.swift */,
 				CB38DB6525CB08E50011A820 /* Constants.swift */,
 			);
 			path = Endpoints;
@@ -437,7 +434,6 @@
 				CB38DAEC25C49E980011A820 /* IngredientTableViewCell.swift in Sources */,
 				CB38DA9825C214E10011A820 /* RandomRecipes.swift in Sources */,
 				CB38DAA025C21C860011A820 /* HomeViewModel.swift in Sources */,
-				CB38DA8925C209800011A820 /* MyConstants.swift in Sources */,
 				CB38DABC25C345780011A820 /* IngredientsViewController.swift in Sources */,
 				CB38DA5C25C1B41F0011A820 /* SceneDelegate.swift in Sources */,
 				CB38DAA525C222D90011A820 /* RandomRecipeTableViewCell.swift in Sources */,
