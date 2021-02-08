@@ -73,9 +73,10 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - SDWebImage (5.10.3):
-    - SDWebImage/Core (= 5.10.3)
-  - SDWebImage/Core (5.10.3)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
+  - SideMenuSwift (2.0.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - DropDown
   - MaterialComponents/Chips
   - SDWebImage (~> 5.0)
+  - SideMenuSwift
 
 SPEC REPOS:
   trunk:
@@ -95,6 +97,7 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - SDWebImage
+    - SideMenuSwift
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -104,8 +107,9 @@ SPEC CHECKSUMS:
   MaterialComponents: ba54523b921faa5c2adaaa692048c6b95a09263d
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  SDWebImage: e378178472b735e84b007bfb55514c97948a0598
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
 
-PODFILE CHECKSUM: e6a00a70546e0a03d7cea9e9aeacdc97dc88ab48
+PODFILE CHECKSUM: 9fc0f51252e54363345d1d9be4d6c25a55253444
 
 COCOAPODS: 1.10.0

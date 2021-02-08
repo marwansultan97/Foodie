@@ -9,6 +9,7 @@ import UIKit
 import AMPopTip
 import ChameleonFramework
 import DropDown
+import SideMenuSwift
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
@@ -75,7 +76,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         configureTableView()
         configurePopJoke()
         configureNavBar()
-        
+        configureSideMenu()
+        NotificationCenter.default.addObserver(self, selector: #selector(goToSearchRecipeName), name: NSNotification.Name.init(rawValue: "SearchRecipeName"), object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,8 +86,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tipButton.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
     }
     
-    @objc func showSearchMenu() {
-        self.searchMenu.show()
+    @objc func showSideMenu() {
+        sideMenuController?.revealMenu()
+    }
+    
+    @objc func goToSearchRecipeName() {
+        let vc = SearchRecipeNameViewController.storyboardInstance()
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     
@@ -114,17 +121,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.popTip?.text = self.viewModel.randomJoke?.text
         }
         
-        viewModel.getRecipes(pagination: false)
-        viewModel.getJoke()
+//        viewModel.getRecipes(pagination: false)
+//        viewModel.getJoke()
         
     }
     
     //MARK: - UserInterface Configurations
     
+    func configureSideMenu() {
+        SideMenuController.preferences.basic.menuWidth = self.view.frame.width/4 * 3
+        SideMenuController.preferences.basic.position = .sideBySide
+        SideMenuController.preferences.basic.direction = .left
+        SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
+        SideMenuController.preferences.animation.shadowColor = UIColor.black
+        SideMenuController.preferences.animation.shadowAlpha = 0.5
+        
+    }
     
     func configureNavBar() {
-        let button = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(showSearchMenu))
-        navigationItem.rightBarButtonItem = button
+        let button = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(showSideMenu))
+        navigationItem.leftBarButtonItem = button
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = FlatNavyBlue()
         navigationController?.navigationBar.tintColor = .white

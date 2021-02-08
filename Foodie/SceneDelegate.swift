@@ -7,6 +7,7 @@
 
 import UIKit
 import ChameleonFramework
+import SideMenuSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let rootVC = UIStoryboard(name: "Home", bundle: nil).instantiateInitialViewController()
-            window.rootViewController = rootVC
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let contentVC = storyboard.instantiateInitialViewController()
+            let menuVC = storyboard.instantiateViewController(identifier: "SideMenu")
+            window.rootViewController = SideMenuController(contentViewController: contentVC!, menuViewController: menuVC)
             window.makeKeyAndVisible()
             self.window = window
         }

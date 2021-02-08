@@ -11,5 +11,6 @@ target 'Foodie' do
   pod 'MaterialComponents/Chips'
   pod 'ChameleonFramework/Swift'
   pod 'DropDown'
+  pod 'SideMenuSwift'
 
 end

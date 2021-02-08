@@ -10,11 +10,14 @@ import Foundation
 enum Endpoints {
     
     case randomRecipe(number: Int)
+    case similarRecipes(id: Int)
     case randomJoke
     case randomTrivia
     case recipeID(id: Int)
     case autoComplete(query: String)
     case complexSearch
+    case menuItemSearch(query: String)
+    case menuItemInformation(id: Int)
     
     var url: String {
                 
@@ -31,6 +34,12 @@ enum Endpoints {
             return MyConstants.shared.apiBody + "/recipes/autocomplete?apiKey=\(MyConstants.shared.apiKey)&number=50&query=\(query)"
         case .complexSearch:
             return MyConstants.shared.apiBody + "/recipes/complexSearch"
+        case .menuItemSearch(let query):
+            return MyConstants.shared.apiBody + "/food/menuItems/search?apiKey=\(MyConstants.shared.apiKey)&query=\(query)"
+        case .menuItemInformation(let id):
+            return MyConstants.shared.apiBody + "/food/menuItems/\(id)?apiKey=\(MyConstants.shared.apiKey)"
+        case .similarRecipes(let id):
+            return MyConstants.shared.apiBody + "/recipes/\(id)/similar?apiKey=\(MyConstants.shared.apiKey)"
         }
     }
     

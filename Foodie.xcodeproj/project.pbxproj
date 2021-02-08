@@ -38,6 +38,9 @@
 		CB38DB5125CA174C0011A820 /* SearchRecipeFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DB5025CA174C0011A820 /* SearchRecipeFilterViewModel.swift */; };
 		CB38DB5625CADB270011A820 /* RecipeFilterElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DB5525CADB270011A820 /* RecipeFilterElements.swift */; };
 		CB38DB6625CB08E50011A820 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38DB6525CB08E50011A820 /* Constants.swift */; };
+		CB869B3325D179530007E0FF /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB869B3225D179530007E0FF /* SideMenuViewController.swift */; };
+		CB869B4125D1F44C0007E0FF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB869B4025D1F44C0007E0FF /* SideMenuTableViewCell.swift */; };
+		CB869B4425D1F4950007E0FF /* SideMenuExpandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB869B4325D1F4950007E0FF /* SideMenuExpandTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		CB38DB5025CA174C0011A820 /* SearchRecipeFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeFilterViewModel.swift; sourceTree = "<group>"; };
 		CB38DB5525CADB270011A820 /* RecipeFilterElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFilterElements.swift; sourceTree = "<group>"; };
 		CB38DB6525CB08E50011A820 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CB869B3225D179530007E0FF /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		CB869B4025D1F44C0007E0FF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		CB869B4325D1F4950007E0FF /* SideMenuExpandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuExpandTableViewCell.swift; sourceTree = "<group>"; };
 		F262645B0A751B5575561A11 /* Pods-Foodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodie.debug.xcconfig"; path = "Target Support Files/Pods-Foodie/Pods-Foodie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +180,7 @@
 		CB38DA8D25C211DB0011A820 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB869B3125D179370007E0FF /* SideMenu */,
 				CB38DA8F25C212040011A820 /* HomeViewController.swift */,
 				CB38DA9225C2120F0011A820 /* Home.storyboard */,
 				CB38DAA325C222D90011A820 /* RandomRecipeTableViewCell.swift */,
@@ -307,6 +314,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CB869B3125D179370007E0FF /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CB869B3225D179530007E0FF /* SideMenuViewController.swift */,
+				CB869B4025D1F44C0007E0FF /* SideMenuTableViewCell.swift */,
+				CB869B4325D1F4950007E0FF /* SideMenuExpandTableViewCell.swift */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -431,11 +448,14 @@
 				CB38DB6625CB08E50011A820 /* Constants.swift in Sources */,
 				CB38DB3925C853A50011A820 /* RecipeElement.swift in Sources */,
 				CB38DA7025C1B4690011A820 /* ApiServices.swift in Sources */,
+				CB869B3325D179530007E0FF /* SideMenuViewController.swift in Sources */,
 				CB38DAEC25C49E980011A820 /* IngredientTableViewCell.swift in Sources */,
 				CB38DA9825C214E10011A820 /* RandomRecipes.swift in Sources */,
+				CB869B4125D1F44C0007E0FF /* SideMenuTableViewCell.swift in Sources */,
 				CB38DAA025C21C860011A820 /* HomeViewModel.swift in Sources */,
 				CB38DABC25C345780011A820 /* IngredientsViewController.swift in Sources */,
 				CB38DA5C25C1B41F0011A820 /* SceneDelegate.swift in Sources */,
+				CB869B4425D1F4950007E0FF /* SideMenuExpandTableViewCell.swift in Sources */,
 				CB38DAA525C222D90011A820 /* RandomRecipeTableViewCell.swift in Sources */,
 				CB38DB2325C826FD0011A820 /* RecipeContentViewModel.swift in Sources */,
 				CB38DAB925C345650011A820 /* OverviewViewController.swift in Sources */,
