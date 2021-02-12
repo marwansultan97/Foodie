@@ -1,6 +1,10 @@
 # Foodie
-![Screen Shot 2021-02-03 at 9 04 32 AM](https://user-images.githubusercontent.com/52767660/106784019-0816a880-6633-11eb-829b-417a0dcba56e.png)
-![Screen Shot 2021-02-03 at 9 05 08 AM](https://user-images.githubusercontent.com/52767660/106784033-0a790280-6633-11eb-88f5-5756f3a3bd27.png)
-![Screen Shot 2021-02-03 at 9 05 24 AM](https://user-images.githubusercontent.com/52767660/106784040-0baa2f80-6633-11eb-8b16-db3b3a21798d.png)
-![Screen Shot 2021-02-03 at 9 05 57 AM](https://user-images.githubusercontent.com/52767660/106784042-0c42c600-6633-11eb-9a27-1a993dbf5aac.png)
-![Screen Shot 2021-02-03 at 9 06 45 AM](https://user-images.githubusercontent.com/52767660/106784046-0cdb5c80-6633-11eb-8c08-195bfb063d54.png)
+
+![1](https://user-images.githubusercontent.com/52767660/107801028-3cdbdb80-6d68-11eb-8dec-cb985ef80027.png)
+![2](https://user-images.githubusercontent.com/52767660/107801054-3f3e3580-6d68-11eb-84a8-9d13c1867844.png)
+![3](https://user-images.githubusercontent.com/52767660/107800894-0c943d00-6d68-11eb-9d58-a3c5e7152912.png)
+![4](https://user-images.githubusercontent.com/52767660/107800899-0d2cd380-6d68-11eb-82cf-fc9bba7332e2.png)
+![5](https://user-images.githubusercontent.com/52767660/107800902-0dc56a00-6d68-11eb-8075-bee326267ea4.png)
+![6](https://user-images.githubusercontent.com/52767660/107800915-11f18780-6d68-11eb-9928-32465cbc74d6.png)
+![7](https://user-images.githubusercontent.com/52767660/107800923-1322b480-6d68-11eb-9150-19a15577a261.png)
+![8](https://user-images.githubusercontent.com/52767660/107801689-12d6e900-6d69-11eb-8b85-9d93e72775b8.png)
