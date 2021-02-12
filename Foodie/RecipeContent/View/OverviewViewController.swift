@@ -104,6 +104,7 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.tabBarController?.tabBar.barTintColor = FlatNavyBlue()
         tabBarController?.tabBar.tintColor = .white
         recipeImageView.layer.cornerRadius = 20
+        recipeName.adjustsFontSizeToFitWidth = true
     }
     
     func configureCollectionView() {
