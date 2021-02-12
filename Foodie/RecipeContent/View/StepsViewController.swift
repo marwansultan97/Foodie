@@ -41,18 +41,20 @@ class StepsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             }
         }
-    
     }
     
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 70
         tableView.allowsSelection = false
         tableView.register(UINib(nibName: "IngredientTableViewCell", bundle: nil), forCellReuseIdentifier: equipmentCellIdentifier)
     }
     
+    
+    //MARK: - TableView Configurations
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -72,6 +74,7 @@ class StepsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let step = self.steps[indexPath.row]
             cell.textLabel?.text = "\(step.number)) " + step.step
             cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.textColor = .black
             return cell
         }
         

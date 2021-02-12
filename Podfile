@@ -12,5 +12,6 @@ target 'Foodie' do
   pod 'ChameleonFramework/Swift'
   pod 'DropDown'
   pod 'SideMenuSwift'
+  pod "DynamicBlurView"
 
 end

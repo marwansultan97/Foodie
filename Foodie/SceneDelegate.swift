@@ -20,10 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let contentVC = storyboard.instantiateInitialViewController()
-            let menuVC = storyboard.instantiateViewController(identifier: "SideMenu")
-            window.rootViewController = SideMenuController(contentViewController: contentVC!, menuViewController: menuVC)
+            let storyboardHome = UIStoryboard(name: "Home", bundle: nil)
+            let storyboardSideMenu = UIStoryboard(name: "SideMenu", bundle: nil)
+            let contentVC = storyboardHome.instantiateInitialViewController()
+            let menuVC = storyboardSideMenu.instantiateInitialViewController()
+            window.rootViewController = SideMenuController(contentViewController: contentVC!, menuViewController: menuVC!)
             window.makeKeyAndVisible()
             self.window = window
         }

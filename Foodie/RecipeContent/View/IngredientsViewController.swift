@@ -33,14 +33,22 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         configureUI()
         configureTableView()
-        print(id)
     }
     
+    
+    //MARK: - UI Configurations
     func configureUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         guard let originalServings = recipe?.servings else { return }
         servingTF.text = "\(originalServings) Servings"
         servingTF.delegate = self
+        servingTF.textColor = .black
+        
+        segmentControl.backgroundColor = .lightGray
+        segmentControl.selectedSegmentTintColor = .white
+        let attributesNormal = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        segmentControl.setTitleTextAttributes(attributesNormal, for: .normal)
+        
     }
     
     func configureTableView() {
@@ -48,6 +56,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.rowHeight = 70
         tableView.allowsSelection = false
+        tableView.backgroundColor = .white
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 80, bottom: 0, right: 80)
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: "IngredientTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -57,6 +66,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         view.endEditing(true)
     }
     
+    
+    //MARK: - TableView Configurations
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
     }
@@ -83,6 +94,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
 
 }
 
+//MARK: - TextField Configurations
 extension IngredientsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -103,8 +115,8 @@ extension IngredientsViewController: UITextFieldDelegate {
         }
         
         UIView.animate(withDuration: 0.3) {
-            self.servingTF.textColor = .label
-            self.lineView.backgroundColor = .label
+            self.servingTF.textColor = .black
+            self.lineView.backgroundColor = .black
             self.lineView.alpha = 0.5
         }
     }

@@ -16,7 +16,8 @@ class IngredientTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        backgroundColor = .white
+        ingredientName.textColor = .black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

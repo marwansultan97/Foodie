@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RWb-o1-IWd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Similar Recipes-->
+        <scene sceneID="yu7-Qm-MYi">
+            <objects>
+                <viewController id="RWb-o1-IWd" customClass="SimilarRecipesViewController" customModule="Foodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H6u-7P-skp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-1h-veb">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GLk-Da-0oL"/>
+                                    <constraint firstAttribute="width" constant="40" id="fyA-eJ-tg9"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWB-8L-iMZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Akt-SV-zmX">
+                                        <rect key="frame" x="0.0" y="15" width="414" height="803"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Akt-SV-zmX" firstAttribute="leading" secondItem="hWB-8L-iMZ" secondAttribute="leading" id="3z4-u7-Wqv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Akt-SV-zmX" secondAttribute="trailing" id="NE0-qc-q1e"/>
+                                    <constraint firstItem="Akt-SV-zmX" firstAttribute="top" secondItem="hWB-8L-iMZ" secondAttribute="top" constant="15" id="kYI-Ki-SvA"/>
+                                    <constraint firstAttribute="bottom" secondItem="Akt-SV-zmX" secondAttribute="bottom" id="s4B-0K-0kc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jop-uc-vD9"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0Wr-1h-veb" firstAttribute="centerY" secondItem="H6u-7P-skp" secondAttribute="centerY" id="2rs-bl-RSP"/>
+                            <constraint firstItem="hWB-8L-iMZ" firstAttribute="leading" secondItem="jop-uc-vD9" secondAttribute="leading" id="3ab-5u-D3b"/>
+                            <constraint firstItem="jop-uc-vD9" firstAttribute="trailing" secondItem="hWB-8L-iMZ" secondAttribute="trailing" id="9Pi-Dn-IdW"/>
+                            <constraint firstItem="0Wr-1h-veb" firstAttribute="centerX" secondItem="H6u-7P-skp" secondAttribute="centerX" id="Ohn-yC-Z1V"/>
+                            <constraint firstItem="jop-uc-vD9" firstAttribute="bottom" secondItem="hWB-8L-iMZ" secondAttribute="bottom" id="SQl-QP-mn6"/>
+                            <constraint firstItem="hWB-8L-iMZ" firstAttribute="top" secondItem="jop-uc-vD9" secondAttribute="top" id="jNL-0H-4Ep"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Similar Recipes" id="GxX-qf-cPv">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="jYy-K0-yJM"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="0Wr-1h-veb" id="YHY-fv-mu8"/>
+                        <outlet property="contentView" destination="hWB-8L-iMZ" id="jMP-37-GLy"/>
+                        <outlet property="tableView" destination="Akt-SV-zmX" id="Bc2-nw-HMD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ut0-XG-pzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="117"/>
+        </scene>
+    </scenes>
+</document>

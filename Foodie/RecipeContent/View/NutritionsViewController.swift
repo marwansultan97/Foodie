@@ -33,7 +33,6 @@ class NutritionsViewController: UIViewController {
         summaryLabel.adjustsFontSizeToFitWidth = true
         summaryLabel.minimumScaleFactor = 0.2
         summaryLabel.text = str
-//        summaryLabel.sizeToFit()
     }
         
 

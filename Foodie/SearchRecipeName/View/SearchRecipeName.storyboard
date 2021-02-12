@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,10 +27,10 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="khS-V4-oeV">
                                         <rect key="frame" x="0.0" y="20" width="414" height="798"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="khS-V4-oeV" firstAttribute="leading" secondItem="yUm-5N-lGQ" secondAttribute="leading" id="Mga-WX-Slu"/>
                                     <constraint firstItem="khS-V4-oeV" firstAttribute="top" secondItem="yUm-5N-lGQ" secondAttribute="top" constant="20" id="OM2-mS-mJi"/>
@@ -41,7 +40,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sfv-Ok-eCf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3dm-sF-qbo" firstAttribute="centerX" secondItem="zAp-S8-SEU" secondAttribute="centerX" id="15o-tt-0zo"/>
                             <constraint firstItem="Sfv-Ok-eCf" firstAttribute="trailing" secondItem="yUm-5N-lGQ" secondAttribute="trailing" id="QBq-av-pCy"/>
@@ -62,9 +61,4 @@
             <point key="canvasLocation" x="132" y="78"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -61,6 +61,7 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     }
     
+    //MARK: - ViewModel Binding
     func initVM() {
         
         viewModel.didRecieveContentAlpha = { [weak self] in
@@ -97,7 +98,7 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
 
-    
+    //MARK: - Configure UI
     func configureUI() {
         title = "Overview"
         self.tabBarController?.tabBar.barTintColor = FlatNavyBlue()
@@ -105,7 +106,22 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
         recipeImageView.layer.cornerRadius = 20
     }
     
+    func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+        collectionView.allowsMultipleSelection = true
+        let layout = MDCChipCollectionViewFlowLayout()
+        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 3
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        collectionView.collectionViewLayout = layout
+        collectionView.register(MDCChipCollectionViewCell.self, forCellWithReuseIdentifier: "identifier")
+    }
     
+    
+    //MARK: - CollectionView Chip Elements
     func configureSectionsCells() {
         // Section 1 Cells
         if let servings = recipe?.servings {
@@ -143,19 +159,8 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    func configureCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.allowsMultipleSelection = true
-        let layout = MDCChipCollectionViewFlowLayout()
-        layout.minimumLineSpacing = 3
-        layout.minimumInteritemSpacing = 3
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        collectionView.collectionViewLayout = layout
-        collectionView.register(MDCChipCollectionViewCell.self, forCellWithReuseIdentifier: "identifier")
-    }
     
+    //MARK: - CollectionView Methods
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }

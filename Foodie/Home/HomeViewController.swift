@@ -8,7 +8,6 @@
 import UIKit
 import AMPopTip
 import ChameleonFramework
-import DropDown
 import SideMenuSwift
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
@@ -20,7 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     var popTip: PopTip?
-    var searchMenu = DropDown()
     private let cellIdentifier = "RandomRecipeTableViewCell"
     
     
@@ -41,10 +39,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     lazy var headerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+        view.backgroundColor = .white
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
-        let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+        let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.black]
         let boldMutableAttributes = NSMutableAttributedString(string: "Hungry?", attributes: boldAttributes)
-        let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)]
+        let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.black]
         let normalMutableAttributes = NSMutableAttributedString(string: " Try these deliciuos dishes!", attributes: normalAttributes)
         boldMutableAttributes.append(normalMutableAttributes)
         label.attributedText = boldMutableAttributes
@@ -56,14 +55,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     lazy var footerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+        view.backgroundColor = .white
         return view
     }()
     
     lazy var footerPaginatingView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+        view.backgroundColor = .white
         let ai = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         ai.startAnimating()
         ai.style = .medium
+        ai.color = .black
         view.addSubview(ai)
         ai.center = view.center
         return view
@@ -77,7 +79,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         configurePopJoke()
         configureNavBar()
         configureSideMenu()
-        NotificationCenter.default.addObserver(self, selector: #selector(goToSearchRecipeName), name: NSNotification.Name.init(rawValue: "SearchRecipeName"), object: nil)
+        setupNotifications()
     }
     
     override func viewDidLayoutSubviews() {
@@ -86,15 +88,60 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tipButton.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
     }
     
+    //MARK: - SideMenu and Navigation Methods
+    
+    func configureSideMenu() {
+        SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 80
+        SideMenuController.preferences.basic.position = .sideBySide
+        SideMenuController.preferences.basic.direction = .left
+        SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
+        SideMenuController.preferences.animation.shadowColor = UIColor.black
+        SideMenuController.preferences.animation.shadowAlpha = 0.5
+        
+    }
+    
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(goToSearchRecipeName), name: NSNotification.Name.init(rawValue: "SearchRecipeName"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToSearchRecipeFilters), name: NSNotification.Name.init(rawValue: "SearchRecipeFilters"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMenuList), name: NSNotification.Name.init(rawValue: "MenuList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMenuItemsSearch), name: NSNotification.Name.init(rawValue: "MenuItemsSearch"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMealPlanDay), name: NSNotification.Name.init(rawValue: "MealPlanDay"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMealPlanWeek), name: NSNotification.Name.init(rawValue: "MealPlanWeek"), object: nil)
+    }
+    
     @objc func showSideMenu() {
         sideMenuController?.revealMenu()
     }
     
-    @objc func goToSearchRecipeName() {
-        let vc = SearchRecipeNameViewController.storyboardInstance()
+    @objc func goToMealPlanDay() {
+        let vc = UIStoryboard(name: "MealPlanDay", bundle: nil).instantiateInitialViewController()
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+    @objc func goToMealPlanWeek() {
+        let vc = UIStoryboard(name: "MealPlanWeek", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @objc func goToMenuItemsSearch() {
+        let vc = UIStoryboard(name: "MenuItemsSearch", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @objc func goToSearchRecipeName() {
+        let vc = UIStoryboard(name: "SearchRecipeName", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @objc func goToSearchRecipeFilters() {
+        let vc = UIStoryboard(name: "SearchRecipeFilter", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @objc func goToMenuList() {
+        let menuListVC = UIStoryboard(name: "MenuList", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(menuListVC!, animated: true)
+    }
     
     
     //MARK: - ViewModel Binding
@@ -121,22 +168,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.popTip?.text = self.viewModel.randomJoke?.text
         }
         
-//        viewModel.getRecipes(pagination: false)
+        viewModel.getRecipes(pagination: false)
 //        viewModel.getJoke()
         
     }
     
     //MARK: - UserInterface Configurations
-    
-    func configureSideMenu() {
-        SideMenuController.preferences.basic.menuWidth = self.view.frame.width/4 * 3
-        SideMenuController.preferences.basic.position = .sideBySide
-        SideMenuController.preferences.basic.direction = .left
-        SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
-        SideMenuController.preferences.animation.shadowColor = UIColor.black
-        SideMenuController.preferences.animation.shadowAlpha = 0.5
-        
-    }
     
     func configureNavBar() {
         let button = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(showSideMenu))
@@ -146,24 +183,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: FlatWhite()]
         
-        searchMenu.anchorView = navigationItem.rightBarButtonItem
-        searchMenu.dataSource = ["Search Recipes by Name","Search Recipes With Filters"]
-        searchMenu.backgroundColor = FlatBlue()
-        searchMenu.textColor = .white
-        searchMenu.selectionBackgroundColor = FlatBlueDark()
-        searchMenu.bottomOffset = CGPoint(x: 0, y: (navigationController?.navigationBar.frame.height)!)
-        searchMenu.selectionBackgroundColor = UIColor.white.darken(byPercentage: 0.1)
-        searchMenu.selectionAction = { [weak self] (index,item) in
-            guard let self = self else { return }
-            if index == 0 {
-                let vc = SearchRecipeNameViewController.storyboardInstance()
-                self.navigationController?.pushViewController(vc!, animated: true)
-            } else {
-                let vc = SearchRecipeFilterViewController.storyboardInstance()
-                self.navigationController?.pushViewController(vc!, animated: true)
-            }
-            
-        }
+        activityIndicator.color = .black
     }
     
     
@@ -171,6 +191,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 280
+        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.tableHeaderView = headerView
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -201,6 +222,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RandomRecipeTableViewCell
         let recipe = viewModel.randomRecipes[indexPath.row]
         cell.configureCell(recipe: recipe)
+        cell.delegate = self
+        cell.id = recipe.id
+        cell.name = recipe.title
         return cell
     }
     
@@ -230,11 +254,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
-    static func storyboardInstance() -> HomeViewController? {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        return storyboard.instantiateInitialViewController() as? HomeViewController
+}
+
+//MARK: - Similar Button Cell
+extension HomeViewController: SimilarRecipeDelegate {
+    func similarRecipeTapped(withID id: Int, andName name: String) {
+        let storyboard = UIStoryboard(name: "SimilarRecipes", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as? SimilarRecipesViewController
+        vc?.id = id
+        vc?.name = name
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
+
+    
 }
 
 

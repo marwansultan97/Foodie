@@ -46,6 +46,7 @@ class SearchRecipeFilterViewController: UIViewController {
         footerView.addSubview(ai)
         ai.startAnimating()
         ai.style = .medium
+        ai.color = .black
         ai.center = footerView.center
         return footerView
     }()
@@ -64,6 +65,7 @@ class SearchRecipeFilterViewController: UIViewController {
         initVM()
     }
     
+    //MARK: - ViewModel Binding
     func initVM() {
         
         viewModel.didRecieveRecipeElements = { [weak self] in
@@ -87,10 +89,29 @@ class SearchRecipeFilterViewController: UIViewController {
         
     }
     
+    //MARK: - URL Configurations
+    func configureURL() {
+        self.url = URLComponents(string: Endpoints.complexSearch.url)
+        url?.queryItems = [
+            URLQueryItem(name: "apiKey", value: MyConstants.shared.apiKey), //0
+            URLQueryItem(name: "cuisine", value: ""),  // 1
+            URLQueryItem(name: "diet", value: ""), // 2
+            URLQueryItem(name: "type", value: ""), // 3
+            URLQueryItem(name: "maxReadyTime", value: "1000"), // 4
+            URLQueryItem(name: "includeIngredients", value: ""), // 5
+            URLQueryItem(name: "offset", value: "0"), // 6
+            URLQueryItem(name: "sort", value: "popularity"), // 7
+            URLQueryItem(name: "number", value: "5") // 8
+        ]
+    }
+    
+    //MARK: - UI Configurations
+    
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         tableView.rowHeight = 280
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
@@ -127,22 +148,10 @@ class SearchRecipeFilterViewController: UIViewController {
         searchButton.layer.borderWidth = 1.5
         
         navigationItem.titleView = self.addFiltersButton
+        
+        activityIndicator.color = .black
     }
     
-    func configureURL() {
-        self.url = URLComponents(string: Endpoints.complexSearch.url)
-        url?.queryItems = [
-            URLQueryItem(name: "apiKey", value: MyConstants.shared.apiKey), //0
-            URLQueryItem(name: "cuisine", value: ""),  // 1
-            URLQueryItem(name: "diet", value: ""), // 2
-            URLQueryItem(name: "type", value: ""), // 3
-            URLQueryItem(name: "maxReadyTime", value: "1000"), // 4
-            URLQueryItem(name: "includeIngredients", value: ""), // 5
-            URLQueryItem(name: "offset", value: "0"), // 6
-            URLQueryItem(name: "sort", value: "popularity"), // 7
-            URLQueryItem(name: "number", value: "5") // 8
-        ]
-    }
     
     func configureDropDown() {
         cuisineDropDown.anchorView = cuisineButton
@@ -290,14 +299,10 @@ class SearchRecipeFilterViewController: UIViewController {
         
     }
     
-    static func storyboardInstance() -> SearchRecipeFilterViewController? {
-        let storyboard = UIStoryboard(name: "SearchRecipeFilter", bundle: nil)
-        return storyboard.instantiateInitialViewController() as? SearchRecipeFilterViewController
-    }
     
 }
 
-
+//MARK: - TableView & TextField Configurations
 extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

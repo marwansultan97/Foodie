@@ -28,9 +28,10 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EPj-tI-W91">
                                         <rect key="frame" x="0.0" y="15" width="414" height="803"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="EPj-tI-W91" secondAttribute="bottom" id="PhT-ee-uvY"/>
                                     <constraint firstAttribute="trailing" secondItem="EPj-tI-W91" secondAttribute="trailing" id="SOw-Yt-Tam"/>
@@ -176,7 +177,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tqC-5E-WHl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tqC-5E-WHl" firstAttribute="trailing" secondItem="3Q3-8I-jXE" secondAttribute="trailing" id="4SZ-Qj-k0L"/>
                             <constraint firstItem="Nm0-Op-OLw" firstAttribute="top" secondItem="tqC-5E-WHl" secondAttribute="top" id="Gwx-03-RRl"/>

@@ -13,7 +13,15 @@ class SideMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        titleLabel.layer.masksToBounds = false
+        titleLabel.layer.shadowColor = UIColor.white.cgColor
+        titleLabel.layer.shadowRadius = 1
+        titleLabel.layer.shadowOpacity = 1
+        titleLabel.layer.shadowOffset = .zero
+        backgroundColor = .clear
+        tintColor = .white
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

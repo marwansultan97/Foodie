@@ -40,8 +40,11 @@ class SearchRecipeNameViewController: UIViewController {
         initVM()
         configureNavBar()
         configureTableView()
+        
+        
     }
     
+    //MARK: - ViewModel Binding
     func initVM() {
         
         viewModel.didRecieveRecipeElements = { [weak self] in
@@ -67,8 +70,10 @@ class SearchRecipeNameViewController: UIViewController {
         
     }
     
+    //MARK: - UI Configurations
     func configureNavBar() {
         navigationItem.titleView = self.searchBar
+        activityIndicator.color = .black
     }
     
 
@@ -76,18 +81,16 @@ class SearchRecipeNameViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white
         tableView.rowHeight = 280
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
-    
-    static func storyboardInstance() -> SearchRecipeNameViewController? {
-        let storyboard = UIStoryboard(name: "SearchRecipeName", bundle: nil)
-        return storyboard.instantiateInitialViewController() as? SearchRecipeNameViewController
-    }
 
 }
 
+//MARK: - TableView and SearchBar Configurations
 extension SearchRecipeNameViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     

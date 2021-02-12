@@ -52,19 +52,18 @@ class RecipeContentViewModel {
         self.contentAlpha = 0
         
         let url = Endpoints.recipeID(id: self.id!).url
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.7) {
-            ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (result: Recipe?, err) in
-                guard let self = self else { return }
-                self.isLoading = false
-                if let err = err {
-                    self.errorMessage = "\(err)"
-                } else {
-                    guard let result = result else { return }
-                    self.recipeContent = result
-                    self.contentAlpha = 1
-                }
+        ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (result: Recipe?, err) in
+            guard let self = self else { return }
+            self.isLoading = false
+            if let err = err {
+                self.errorMessage = "\(err)"
+            } else {
+                guard let result = result else { return }
+                self.recipeContent = result
+                self.contentAlpha = 1
             }
         }
+        
     }
     
     
