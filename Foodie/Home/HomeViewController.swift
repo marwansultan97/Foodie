@@ -169,7 +169,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         viewModel.getRecipes(pagination: false)
-//        viewModel.getJoke()
+        viewModel.getJoke()
         
     }
     
