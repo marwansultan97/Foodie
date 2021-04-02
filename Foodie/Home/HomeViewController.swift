@@ -64,7 +64,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.backgroundColor = .white
         let ai = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         ai.startAnimating()
-        ai.style = .medium
+        if #available(iOS 13.0, *) {
+            ai.style = .medium
+        }
         ai.color = .black
         view.addSubview(ai)
         ai.center = view.center
@@ -147,7 +149,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - ViewModel Binding
     func initVM() {
         viewModel.didRecieveRandomRecipe = { [weak self] in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            let cells = CGFloat(self.viewModel.randomRecipes.count * 280)
+            let offset = self.tableView.contentOffset.y + cells
+            self.tableView.reloadData()
+            self.tableView.contentOffset.y = offset
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             print(self?.viewModel.errorMessage)
@@ -176,7 +182,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - UserInterface Configurations
     
     func configureNavBar() {
-        let button = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(showSideMenu))
+        let button = UIBarButtonItem(image: UIImage(named: "SF_line_horizontal_3_decrease_circle_fill"), style: .plain, target: self, action: #selector(showSideMenu))
         navigationItem.leftBarButtonItem = button
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = FlatNavyBlue()
@@ -190,7 +196,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 280
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.tableHeaderView = headerView
@@ -238,22 +243,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         overviewVC?.id = recipeSelected
 
         navigationController?.pushViewController(tabbarVC, animated: true)
-        
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 280
+    }
+
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        popTip?.hide()
         let position = scrollView.contentOffset.y
         let contentHeight = self.tableView.contentSize.height
         let scrollHeight = scrollView.frame.height
         tableView.tableFooterView = viewModel.isPaginating ? self.footerPaginatingView : self.footerView
-        if position > contentHeight + 50 - scrollHeight {
-            guard !viewModel.isPaginating else { return }
-            viewModel.getRecipes(pagination: true)
-        }
+        guard position > contentHeight + 50 - scrollHeight else { return }
+        guard !viewModel.isPaginating else { return }
+        viewModel.getRecipes(pagination: true)
         
     }
     
-
+    
 }
 
 //MARK: - Similar Button Cell

@@ -35,7 +35,7 @@ class SearchRecipeFilterViewController: UIViewController {
     private lazy var addFiltersButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
         button.setTitle("Set Filters", for: .normal)
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.setImage(UIImage(named: "SF_plus_square_on_square_fill"), for: .normal)
         button.addTarget(self, action: #selector(showFilters), for: .touchUpInside)
         return button
     }()
@@ -45,7 +45,10 @@ class SearchRecipeFilterViewController: UIViewController {
         let ai = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         footerView.addSubview(ai)
         ai.startAnimating()
-        ai.style = .medium
+        if #available(iOS 13.0, *) {
+            ai.style = .medium
+        }
+        
         ai.color = .black
         ai.center = footerView.center
         return footerView
@@ -160,13 +163,13 @@ class SearchRecipeFilterViewController: UIViewController {
         cuisineDropDown.backgroundColor = .white
         cuisineDropDown.selectionBackgroundColor = FlatWhiteDark()
         cuisineDropDown.selectedTextColor = .blue
-        cuisineDropDown.showsLargeContentViewer = false
+//        cuisineDropDown.showsLargeContentViewer = false
         cuisineDropDown.cancelAction = {
-            self.cuisineButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.cuisineButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
         }
         cuisineDropDown.selectionAction = { [weak self] (index, item) in
             guard let self = self else { return }
-            self.cuisineButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.cuisineButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[1].value = ""
                 self.cuisineButton.setTitle("Cuisines", for: .normal)
@@ -184,11 +187,11 @@ class SearchRecipeFilterViewController: UIViewController {
         dietDropDown.selectionBackgroundColor = FlatWhiteDark()
         dietDropDown.selectedTextColor = .blue
         dietDropDown.cancelAction = {
-            self.dietButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.dietButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
         }
         dietDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
-            self.dietButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.dietButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[2].value = ""
                 self.dietButton.setTitle("Diet", for: .normal)
@@ -206,11 +209,11 @@ class SearchRecipeFilterViewController: UIViewController {
         mealTypesDropDown.selectionBackgroundColor = FlatWhiteDark()
         mealTypesDropDown.selectedTextColor = .blue
         mealTypesDropDown.cancelAction = {
-            self.mealTypeButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.mealTypeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
         }
         mealTypesDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
-            self.mealTypeButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.mealTypeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[3].value = ""
                 self.mealTypeButton.setTitle("Meal Type", for: .normal)
@@ -228,11 +231,11 @@ class SearchRecipeFilterViewController: UIViewController {
         timeDropDown.selectionBackgroundColor = FlatWhiteDark()
         timeDropDown.selectedTextColor = .blue
         timeDropDown.cancelAction = {
-            self.readyTimeButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.readyTimeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
         }
         timeDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
-            self.readyTimeButton.setImage(UIImage(systemName: "arrow.down.app.fill"), for: .normal)
+            self.readyTimeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[4].value = "1000"
                 self.readyTimeButton.setTitle("Ready Time", for: .normal)
@@ -272,16 +275,16 @@ class SearchRecipeFilterViewController: UIViewController {
     @IBAction func filterTapped(_ sender: UIButton) {
         if sender.tag == 0 {
             cuisineDropDown.show()
-            cuisineButton.setImage(UIImage(systemName: "arrow.up.square.fill"), for: .normal)
+            cuisineButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
         } else if sender.tag == 1 {
             dietDropDown.show()
-            dietButton.setImage(UIImage(systemName: "arrow.up.square.fill"), for: .normal)
+            dietButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
         } else if sender.tag == 2 {
             mealTypesDropDown.show()
-            mealTypeButton.setImage(UIImage(systemName: "arrow.up.square.fill"), for: .normal)
+            mealTypeButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
         } else if sender.tag == 3 {
             timeDropDown.show()
-            readyTimeButton.setImage(UIImage(systemName: "arrow.up.square.fill"), for: .normal)
+            readyTimeButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
         }
         
         

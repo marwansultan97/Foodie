@@ -45,7 +45,10 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         servingTF.textColor = .black
         
         segmentControl.backgroundColor = .lightGray
-        segmentControl.selectedSegmentTintColor = .white
+        if #available(iOS 13.0, *) {
+            segmentControl.selectedSegmentTintColor = .white
+        }
+        
         let attributesNormal = [NSAttributedString.Key.foregroundColor : UIColor.black]
         segmentControl.setTitleTextAttributes(attributesNormal, for: .normal)
         

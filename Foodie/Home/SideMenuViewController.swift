@@ -66,7 +66,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     func configureSideMenuOptions() {
         sideMenuOptions = [
             SideMenuOptions(title: "Search Recipes",
-                            image: UIImage(systemName: "folder"),
+                            image: UIImage(named: "SF_folder_fill"),
                             handler: nil,
                             opened: false,
                             childern: [
@@ -88,7 +88,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
                                                 childern: nil)
                             ]),
             SideMenuOptions(title: "Menus",
-                            image: UIImage(named: "icons8-meal"),
+                            image: UIImage(named: "Ion_ios_restaurant"),
                             handler: nil,
                             opened: false,
                             childern: [SideMenuOptions(title: "Menu Lists",
@@ -108,7 +108,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
                                                        childern: nil)
                             ]),
             SideMenuOptions(title: "Meal Planner",
-                            image: UIImage(systemName: "circle.grid.3x3"),
+                            image: UIImage(named: "SF_circle_grid_3x3"),
                             handler: nil,
                             opened: false,
                             childern: [

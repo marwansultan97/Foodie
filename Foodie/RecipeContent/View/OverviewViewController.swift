@@ -78,7 +78,7 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             guard let self = self else { return }
-            print(self.viewModel.errorMessage)
+            print(self.viewModel.errorMessage!)
         }
         viewModel.didRecieveRecipeContent = { [weak self] in
             guard let self = self else { return }
@@ -126,21 +126,21 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
     func configureSectionsCells() {
         // Section 1 Cells
         if let servings = recipe?.servings {
-            section1.append(ChipsOptions(title: "Serves \(servings)", image: UIImage(systemName: "person.fill")))
+            section1.append(ChipsOptions(title: "Serves \(servings)", image: UIImage(named: "SF_person_crop_square_fill")))
         }
         
         if let servingPrice = recipe?.pricePerServing {
             let dollars = servingPrice/100
             let priceInDollars = String(format: "%.2f", dollars)
-            section1.append(ChipsOptions(title: "\(priceInDollars) per serving", image: UIImage(systemName: "dollarsign.circle.fill")))
+            section1.append(ChipsOptions(title: "\(priceInDollars) per serving", image: UIImage(named: "SF_dollarsign_circle")))
         }
         
         if let score = recipe?.spoonacularScore {
-            section1.append(ChipsOptions(title: "\(score)% score", image: UIImage(systemName: "crown.fill")))
+            section1.append(ChipsOptions(title: "\(score)% score", image: UIImage(named: "FA_Crown")))
         }
         
         if let mins = recipe?.readyInMinutes {
-            section1.append(ChipsOptions(title: "Ready in \(mins) minutes", image: UIImage(systemName: "stopwatch.fill")))
+            section1.append(ChipsOptions(title: "Ready in \(mins) minutes", image: UIImage(named: "SF_stopwatch")))
         }
         
         // Section 2 Cells

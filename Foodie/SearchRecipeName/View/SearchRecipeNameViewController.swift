@@ -25,11 +25,15 @@ class SearchRecipeNameViewController: UIViewController {
         let searchbar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/1.5, height: 30))
         searchbar.delegate = self
         searchbar.barTintColor = FlatNavyBlue()
-        searchbar.searchTextField.leftView?.tintColor = FlatWhite()
-        searchbar.searchTextField.textColor = FlatWhite()
-        searchbar.searchTextField.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.1)
+        if #available(iOS 13.0, *) {
+            searchbar.searchTextField.leftView?.tintColor = FlatWhite()
+            searchbar.searchTextField.textColor = FlatWhite()
+            searchbar.searchTextField.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.1)
+            searchbar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Enter recipe name...", attributes: [NSAttributedString.Key.foregroundColor : FlatWhite().withAlphaComponent(0.75)])
+        } else {
+            
+        }
         searchbar.autocapitalizationType = .none
-        searchbar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Enter recipe name...", attributes: [NSAttributedString.Key.foregroundColor : FlatWhite().withAlphaComponent(0.75)])
         searchbar.showsCancelButton = true
         return searchbar
     }()
@@ -51,7 +55,8 @@ class SearchRecipeNameViewController: UIViewController {
             self?.tableView.reloadData()
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
-            print(self?.viewModel.errorMessage)
+            guard let self = self else { return }
+            print(self.viewModel.errorMessage!)
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }

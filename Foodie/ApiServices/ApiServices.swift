@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+
 class ApiServices {
     
     static let shared = ApiServices()
@@ -15,6 +16,7 @@ class ApiServices {
     func getData<T: Codable>(url: String, method: HTTPMethod, parameters: Parameters?, encoding: JSONEncoding, headers: HTTPHeaders?, completion: @escaping(T?, Error?)-> Void) {
         
         Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { (response) in
+            
             switch response.result {
             case.success(_):
                 guard let data = response.data else { return }
@@ -26,6 +28,14 @@ class ApiServices {
                 }
             case .failure(let err):
                 completion(nil, err)
+//                if let code = response.response?.statusCode {
+//                    switch code {
+//                    case 401:
+//                        completion
+//                    default:
+//                        break
+//                    }
+//                }
             }
         }
         
