@@ -13,34 +13,39 @@ class ApiServices {
     
     static let shared = ApiServices()
     
-    func getData<T: Codable>(url: String, method: HTTPMethod, parameters: Parameters?, encoding: JSONEncoding, headers: HTTPHeaders?, completion: @escaping(T?, Error?)-> Void) {
+    func getData<T: Codable>(url: String, method: HTTPMethod, parameters: Parameters?, encoding: JSONEncoding, headers: HTTPHeaders?, completion: @escaping(T?, String?)-> Void) {
         
         Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { (response) in
             
-            switch response.result {
-            case.success(_):
-                guard let data = response.data else { return }
-                do {
-                    let jsonResult = try JSONDecoder().decode(T.self, from: data)
-                    completion(jsonResult, nil)
-                }catch let jsonErr {
-                    completion(nil, jsonErr)
+            if let err = response.error {
+                print(err)
+            }
+            
+            if let code = response.response?.statusCode {
+                switch code {
+                case 200..<300:
+                    
+                    guard let data = response.data else { return }
+                    do {
+                        let jsonResult = try JSONDecoder().decode(T.self, from: data)
+                        completion(jsonResult, nil)
+                    } catch let jsonErr {
+                        print(jsonErr)
+                        completion(nil, "Something went wrong...")
+                    }
+                    
+                case 401:
+                    completion(nil, "No Authorization")
+                case 402:
+                    completion(nil, "Sorry, This is beta version, we ran out of recipes :( Try tomorrow")
+                    
+                default:
+                    break
                 }
-            case .failure(let err):
-                completion(nil, err)
-//                if let code = response.response?.statusCode {
-//                    switch code {
-//                    case 401:
-//                        completion
-//                    default:
-//                        break
-//                    }
-//                }
+            } else {
+                completion(nil, "Something went wrong...")
             }
         }
-        
-        
-        
     }
     
     

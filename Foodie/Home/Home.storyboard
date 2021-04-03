@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TAn-YF-ZYe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,7 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1J6-6K-yd5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCd-sy-VWu">
+                                <rect key="frame" x="20" y="238" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1J6-6K-yd5">
                                 <rect key="frame" x="187" y="428" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="erM-xp-pY9"/>
@@ -47,8 +54,11 @@
                             <constraint firstItem="1J6-6K-yd5" firstAttribute="centerX" secondItem="deZ-ZA-7yf" secondAttribute="centerX" id="AK5-gk-e1a"/>
                             <constraint firstItem="r48-kO-uTk" firstAttribute="bottom" secondItem="9PJ-w1-DPj" secondAttribute="bottom" id="HlN-ag-2Yu"/>
                             <constraint firstItem="9PJ-w1-DPj" firstAttribute="top" secondItem="r48-kO-uTk" secondAttribute="top" id="LFd-8q-At6"/>
+                            <constraint firstItem="FCd-sy-VWu" firstAttribute="top" secondItem="r48-kO-uTk" secondAttribute="top" constant="150" id="MOT-2n-DmS"/>
+                            <constraint firstItem="FCd-sy-VWu" firstAttribute="leading" secondItem="r48-kO-uTk" secondAttribute="leading" constant="20" id="PRs-4J-Kt2"/>
                             <constraint firstItem="r48-kO-uTk" firstAttribute="trailing" secondItem="9PJ-w1-DPj" secondAttribute="trailing" id="VMC-Vj-4AJ"/>
                             <constraint firstItem="1J6-6K-yd5" firstAttribute="centerY" secondItem="deZ-ZA-7yf" secondAttribute="centerY" id="af0-c6-ZGA"/>
+                            <constraint firstItem="r48-kO-uTk" firstAttribute="trailing" secondItem="FCd-sy-VWu" secondAttribute="trailing" constant="20" id="mYn-Bg-5dT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Foodie" largeTitleDisplayMode="never" id="n5X-tk-gl1">
@@ -57,6 +67,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="1J6-6K-yd5" id="dgl-XK-29l"/>
                         <outlet property="contentView" destination="9PJ-w1-DPj" id="QzP-Ew-yc9"/>
+                        <outlet property="errLabel" destination="FCd-sy-VWu" id="i7Q-Ry-rFa"/>
                         <outlet property="tableView" destination="aJm-An-EvD" id="4if-Tg-nHL"/>
                     </connections>
                 </viewController>

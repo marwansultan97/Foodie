@@ -44,13 +44,15 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         servingTF.delegate = self
         servingTF.textColor = .black
         
-        segmentControl.backgroundColor = .lightGray
-        if #available(iOS 13.0, *) {
-            segmentControl.selectedSegmentTintColor = .white
-        }
-        
-        let attributesNormal = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        segmentControl.backgroundColor = .white
+        segmentControl.tintColor = FlatSkyBlue()
+//        if #available(iOS 13.0, *) {
+//            segmentControl.selectedSegmentTintColor = .white
+//        }
+        let attributesNormal = [NSAttributedString.Key.foregroundColor : FlatSkyBlue()]
+        let attributesSelected = [NSAttributedString.Key.foregroundColor : UIColor.white]
         segmentControl.setTitleTextAttributes(attributesNormal, for: .normal)
+        segmentControl.setTitleTextAttributes(attributesSelected, for: .selected)
         
     }
     
@@ -116,6 +118,7 @@ extension IngredientsViewController: UITextFieldDelegate {
         } else {
             servingTF.text! += " Servings"
         }
+        tableView.reloadData()
         
         UIView.animate(withDuration: 0.3) {
             self.servingTF.textColor = .black

@@ -29,7 +29,6 @@ class NutritionsViewController: UIViewController {
     
     func configureLabel() {
         let str = summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        print(str)
         summaryLabel.adjustsFontSizeToFitWidth = true
         summaryLabel.minimumScaleFactor = 0.2
         summaryLabel.text = str

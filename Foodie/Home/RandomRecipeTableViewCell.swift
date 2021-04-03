@@ -30,7 +30,7 @@ class RandomRecipeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .white
-        
+                
         recipeImage.layer.cornerRadius = recipeImage.frame.height / 2
         recipeImage.layer.shadowColor = UIColor.black.cgColor
         recipeImage.layer.shadowOffset = .zero
@@ -46,6 +46,10 @@ class RandomRecipeTableViewCell: UITableViewCell {
         colorView.layer.shadowRadius = 2
         
         recipeName.adjustsFontSizeToFitWidth = true
+        
+        similarRecipesButton.layer.cornerRadius = similarRecipesButton.frame.height / 2
+        similarRecipesButton.layer.borderWidth = 1
+        similarRecipesButton.layer.borderColor = UIColor.white.cgColor
         
     }
     

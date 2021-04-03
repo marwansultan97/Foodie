@@ -19,6 +19,7 @@ import SDWebImage
 class OverviewViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var recipeImageView: UIImageView!
@@ -78,7 +79,9 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             guard let self = self else { return }
-            print(self.viewModel.errorMessage!)
+            self.errLabel.text = self.viewModel.errorMessage
+            self.activityIndicator.stopAnimating()
+            self.contentView.alpha = 0
         }
         viewModel.didRecieveRecipeContent = { [weak self] in
             guard let self = self else { return }

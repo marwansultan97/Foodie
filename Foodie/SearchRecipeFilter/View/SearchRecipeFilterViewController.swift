@@ -163,13 +163,12 @@ class SearchRecipeFilterViewController: UIViewController {
         cuisineDropDown.backgroundColor = .white
         cuisineDropDown.selectionBackgroundColor = FlatWhiteDark()
         cuisineDropDown.selectedTextColor = .blue
-//        cuisineDropDown.showsLargeContentViewer = false
         cuisineDropDown.cancelAction = {
-            self.cuisineButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.cuisineButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
         }
         cuisineDropDown.selectionAction = { [weak self] (index, item) in
             guard let self = self else { return }
-            self.cuisineButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.cuisineButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[1].value = ""
                 self.cuisineButton.setTitle("Cuisines", for: .normal)
@@ -187,11 +186,11 @@ class SearchRecipeFilterViewController: UIViewController {
         dietDropDown.selectionBackgroundColor = FlatWhiteDark()
         dietDropDown.selectedTextColor = .blue
         dietDropDown.cancelAction = {
-            self.dietButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.dietButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
         }
         dietDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
-            self.dietButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.dietButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[2].value = ""
                 self.dietButton.setTitle("Diet", for: .normal)
@@ -209,11 +208,11 @@ class SearchRecipeFilterViewController: UIViewController {
         mealTypesDropDown.selectionBackgroundColor = FlatWhiteDark()
         mealTypesDropDown.selectedTextColor = .blue
         mealTypesDropDown.cancelAction = {
-            self.mealTypeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.mealTypeButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
         }
         mealTypesDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
-            self.mealTypeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.mealTypeButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[3].value = ""
                 self.mealTypeButton.setTitle("Meal Type", for: .normal)
@@ -231,11 +230,11 @@ class SearchRecipeFilterViewController: UIViewController {
         timeDropDown.selectionBackgroundColor = FlatWhiteDark()
         timeDropDown.selectedTextColor = .blue
         timeDropDown.cancelAction = {
-            self.readyTimeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.readyTimeButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
         }
         timeDropDown.selectionAction = { [weak self] (index,item) in
             guard let self = self else { return }
-            self.readyTimeButton.setImage(UIImage(named: "SF_arrow_down_to_line_alt"), for: .normal)
+            self.readyTimeButton.setImage(UIImage(named: "SF_arrow_down"), for: .normal)
             if index == 0 {
                 self.url?.queryItems?[4].value = "1000"
                 self.readyTimeButton.setTitle("Ready Time", for: .normal)
@@ -275,16 +274,16 @@ class SearchRecipeFilterViewController: UIViewController {
     @IBAction func filterTapped(_ sender: UIButton) {
         if sender.tag == 0 {
             cuisineDropDown.show()
-            cuisineButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
+            cuisineButton.setImage(UIImage(named: "SF_arrow_up"), for: .normal)
         } else if sender.tag == 1 {
             dietDropDown.show()
-            dietButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
+            dietButton.setImage(UIImage(named: "SF_arrow_up"), for: .normal)
         } else if sender.tag == 2 {
             mealTypesDropDown.show()
-            mealTypeButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
+            mealTypeButton.setImage(UIImage(named: "SF_arrow_up"), for: .normal)
         } else if sender.tag == 3 {
             timeDropDown.show()
-            readyTimeButton.setImage(UIImage(named: "SF_arrow_up_right_circle"), for: .normal)
+            readyTimeButton.setImage(UIImage(named: "SF_arrow_up"), for: .normal)
         }
         
         

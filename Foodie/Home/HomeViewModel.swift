@@ -60,7 +60,7 @@ class HomeViewModel {
             self.contentAlpha = 0
         }
         
-        let url = Endpoints.randomRecipe(number: 5).url
+        let url = Endpoints.randomRecipe(number: 1).url
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.7) {
             ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (result: RandomRecipes?, err) in
                 guard let self = self else { return }
@@ -87,7 +87,7 @@ class HomeViewModel {
         ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (joke: RandomJoke?, err) in
             guard let self = self else { return }
             if let err = err {
-                self.errorMessage = "\(err)"
+                self.errorMessage = err
             } else {
                 guard let joke = joke else { return }
                 self.randomJoke = joke

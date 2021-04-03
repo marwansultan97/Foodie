@@ -13,6 +13,7 @@ import SideMenuSwift
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     
+    @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -150,13 +151,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func initVM() {
         viewModel.didRecieveRandomRecipe = { [weak self] in
             guard let self = self else { return }
-            let cells = CGFloat(self.viewModel.randomRecipes.count * 280)
-            let offset = self.tableView.contentOffset.y + cells
             self.tableView.reloadData()
-            self.tableView.contentOffset.y = offset
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
-            print(self?.viewModel.errorMessage)
+            guard let self = self else { return }
+            self.errLabel.text = self.viewModel.errorMessage
+            self.activityIndicator.stopAnimating()
+            self.contentView.alpha = 0
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }
@@ -166,8 +167,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             guard let self = self else { return }
             if self.viewModel.isLoading {
                 self.activityIndicator.startAnimating()
+                self.contentView.alpha = 0
             } else {
                 self.activityIndicator.stopAnimating()
+                self.contentView.alpha = 1
             }
         }
         viewModel.didRecieveRandomJoke = {
@@ -197,6 +200,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .white
+        tableView.rowHeight = 280
+        tableView.estimatedRowHeight = 280
         tableView.separatorStyle = .none
         tableView.tableHeaderView = headerView
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -226,6 +231,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RandomRecipeTableViewCell
         let recipe = viewModel.randomRecipes[indexPath.row]
+        cell.selectionStyle = .none
         cell.configureCell(recipe: recipe)
         cell.delegate = self
         cell.id = recipe.id
@@ -241,12 +247,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tabbarVC = storyboard.instantiateInitialViewController() as! UITabBarController
         let overviewVC = tabbarVC.viewControllers?.first as? OverviewViewController
         overviewVC?.id = recipeSelected
-
         navigationController?.pushViewController(tabbarVC, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 280
     }
 
     

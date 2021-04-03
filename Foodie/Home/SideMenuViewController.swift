@@ -88,7 +88,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
                                                 childern: nil)
                             ]),
             SideMenuOptions(title: "Menus",
-                            image: UIImage(named: "Ion_ios_restaurant"),
+                            image: UIImage(named: "Material_Local_Dining"),
                             handler: nil,
                             opened: false,
                             childern: [SideMenuOptions(title: "Menu Lists",
