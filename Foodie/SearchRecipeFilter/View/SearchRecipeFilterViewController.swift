@@ -11,6 +11,7 @@ import ChameleonFramework
 
 class SearchRecipeFilterViewController: UIViewController {
 
+    @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterViewHeight: NSLayoutConstraint!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -75,7 +76,11 @@ class SearchRecipeFilterViewController: UIViewController {
             self?.tableView.reloadData()
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
-            print(self?.viewModel.errorMessage!)
+            guard let self = self else { return }
+            self.errLabel.text = self.viewModel.errorMessage
+            self.activityIndicator.stopAnimating()
+            self.contentView.alpha = 0
+
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }

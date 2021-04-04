@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pjA-MF-bOy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,6 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="831-1i-02r">
+                                <rect key="frame" x="20" y="314" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ytB-U8-vAJ">
                                 <rect key="frame" x="187" y="428" width="40" height="40"/>
                                 <constraints>
@@ -60,13 +67,13 @@
                                             <constraint firstAttribute="height" constant="20" id="Qie-KI-kax"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
+                                        <state key="normal" image="SF_magnifyingglass_circle_fill"/>
                                         <connections>
                                             <action selector="searchBTNTapped:" destination="pjA-MF-bOy" eventType="touchUpInside" id="7zM-DO-JSu"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstItem="rl2-vg-Noc" firstAttribute="centerY" secondItem="zT9-Yc-uZR" secondAttribute="centerY" id="FI8-5a-fls"/>
                                     <constraint firstAttribute="height" constant="70" id="JsI-Fy-h4i"/>
@@ -160,12 +167,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="y15-79-suJ" firstAttribute="bottom" secondItem="bWP-X3-Os2" secondAttribute="bottom" id="1LL-jv-qA1"/>
+                            <constraint firstItem="831-1i-02r" firstAttribute="top" secondItem="zT9-Yc-uZR" secondAttribute="bottom" constant="200" id="2vz-RV-tY6"/>
                             <constraint firstItem="zT9-Yc-uZR" firstAttribute="leading" secondItem="y15-79-suJ" secondAttribute="leading" id="5Cb-sO-Atn"/>
                             <constraint firstItem="ytB-U8-vAJ" firstAttribute="centerX" secondItem="yc8-b8-oWG" secondAttribute="centerX" id="83y-ma-i5r"/>
                             <constraint firstItem="zT9-Yc-uZR" firstAttribute="top" secondItem="y15-79-suJ" secondAttribute="top" id="EEE-Cq-PXD"/>
                             <constraint firstItem="bWP-X3-Os2" firstAttribute="leading" secondItem="y15-79-suJ" secondAttribute="leading" id="F5b-HI-Oeo"/>
+                            <constraint firstItem="831-1i-02r" firstAttribute="leading" secondItem="y15-79-suJ" secondAttribute="leading" constant="20" id="IcK-30-jsM"/>
                             <constraint firstItem="y15-79-suJ" firstAttribute="trailing" secondItem="zT9-Yc-uZR" secondAttribute="trailing" id="NLZ-OI-mNL"/>
                             <constraint firstItem="ytB-U8-vAJ" firstAttribute="centerY" secondItem="yc8-b8-oWG" secondAttribute="centerY" id="PYB-dK-dAR"/>
+                            <constraint firstItem="y15-79-suJ" firstAttribute="trailing" secondItem="831-1i-02r" secondAttribute="trailing" constant="20" id="Ucf-IZ-XWf"/>
                             <constraint firstItem="y15-79-suJ" firstAttribute="trailing" secondItem="bWP-X3-Os2" secondAttribute="trailing" id="lqp-rA-nWT"/>
                             <constraint firstItem="bWP-X3-Os2" firstAttribute="top" secondItem="zT9-Yc-uZR" secondAttribute="bottom" id="qGO-mj-GfS"/>
                         </constraints>
@@ -176,6 +186,7 @@
                         <outlet property="caloriesTF" destination="uFw-jE-WMG" id="W8d-5F-FSG"/>
                         <outlet property="carbLabel" destination="jhD-TG-SXS" id="Jwq-OQ-jBr"/>
                         <outlet property="contentView" destination="bWP-X3-Os2" id="W1U-oV-8wd"/>
+                        <outlet property="errLabel" destination="831-1i-02r" id="KmN-iX-fXC"/>
                         <outlet property="fatLabel" destination="T8L-MK-at1" id="TtV-Bd-yF9"/>
                         <outlet property="filterView" destination="zT9-Yc-uZR" id="W4W-OI-ot9"/>
                         <outlet property="nutritionsView" destination="y9B-rY-8Sd" id="9ZS-cs-xZM"/>
@@ -189,9 +200,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="SF_magnifyingglass_circle_fill" width="16" height="16"/>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

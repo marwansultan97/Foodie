@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 extension UICollectionView {
     
@@ -31,4 +32,16 @@ extension UICollectionView {
             self.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
+}
+
+extension UITableView {
+    
+    func setupRefresh() {
+        let refreshController = UIRefreshControl()
+        refreshController.tintColor = UIColor(red: 0.25, green: 0.72, blue: 0.85, alpha: 1.0)
+        refreshController.attributedTitle = NSAttributedString(string: "Refresh", attributes: [NSAttributedString.Key.foregroundColor : FlatSkyBlue() , NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .heavy)])
+        refreshControl = refreshController
+        
+    }
+    
 }

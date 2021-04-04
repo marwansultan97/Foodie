@@ -12,6 +12,7 @@ class MealPlanWeekViewController: UIViewController {
 
     
     
+    @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var caloriesTF: UITextField!
@@ -37,11 +38,14 @@ class MealPlanWeekViewController: UIViewController {
         
         viewModel.didRecieveMealPlan = { [weak self] in
             guard let self = self else { return }
-            guard let mealPlan = self.viewModel.mealPlan else { return }
             self.tableView.reloadData()
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
-            
+            guard let self = self else { return }
+            self.errLabel.text = self.viewModel.errorMessage
+            self.activityIndicator.stopAnimating()
+            self.contentView.alpha = 0
+
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8yR-Ft-Gbx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeW-q5-Cyd">
+                                <rect key="frame" x="20" y="194" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dah-eY-A3Z">
                                 <rect key="frame" x="187" y="428" width="40" height="40"/>
                                 <constraints>
@@ -42,17 +49,21 @@
                         <viewLayoutGuide key="safeArea" id="n7H-RG-ZUQ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="n7H-RG-ZUQ" firstAttribute="trailing" secondItem="JeW-q5-Cyd" secondAttribute="trailing" constant="20" id="8LA-CC-PGw"/>
                             <constraint firstItem="ORL-jK-CGO" firstAttribute="top" secondItem="n7H-RG-ZUQ" secondAttribute="top" id="QHx-Q4-EaW"/>
                             <constraint firstItem="n7H-RG-ZUQ" firstAttribute="trailing" secondItem="ORL-jK-CGO" secondAttribute="trailing" id="RPd-ym-6ou"/>
                             <constraint firstItem="ORL-jK-CGO" firstAttribute="leading" secondItem="n7H-RG-ZUQ" secondAttribute="leading" id="YDP-Kr-sOm"/>
                             <constraint firstItem="n7H-RG-ZUQ" firstAttribute="bottom" secondItem="ORL-jK-CGO" secondAttribute="bottom" id="anE-sV-U83"/>
+                            <constraint firstItem="JeW-q5-Cyd" firstAttribute="leading" secondItem="n7H-RG-ZUQ" secondAttribute="leading" constant="20" id="iyn-sk-Y1K"/>
                             <constraint firstItem="dah-eY-A3Z" firstAttribute="centerY" secondItem="fDT-sE-gBf" secondAttribute="centerY" id="uu7-s6-rpd"/>
                             <constraint firstItem="dah-eY-A3Z" firstAttribute="centerX" secondItem="fDT-sE-gBf" secondAttribute="centerX" id="vqp-c7-NVR"/>
+                            <constraint firstItem="JeW-q5-Cyd" firstAttribute="top" secondItem="n7H-RG-ZUQ" secondAttribute="top" constant="150" id="yaN-LZ-tir"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="dah-eY-A3Z" id="qXX-9Q-shC"/>
                         <outlet property="contentView" destination="ORL-jK-CGO" id="o14-u9-3CB"/>
+                        <outlet property="errLabel" destination="JeW-q5-Cyd" id="SP6-Iw-OJe"/>
                         <outlet property="tableView" destination="L1Z-8v-vXh" id="hXe-aw-zz2"/>
                     </connections>
                 </viewController>

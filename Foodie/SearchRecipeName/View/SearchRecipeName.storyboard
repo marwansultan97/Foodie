@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oan-pD-P9y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbE-3e-xa6">
+                                <rect key="frame" x="20" y="194" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3dm-sF-qbo">
                                 <rect key="frame" x="187" y="428" width="40" height="40"/>
                                 <constraints>
@@ -22,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="40" id="ueR-LN-oUh"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUm-5N-lGQ" userLabel="ContentView">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUm-5N-lGQ" userLabel="ContentView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="khS-V4-oeV">
@@ -43,16 +50,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3dm-sF-qbo" firstAttribute="centerX" secondItem="zAp-S8-SEU" secondAttribute="centerX" id="15o-tt-0zo"/>
+                            <constraint firstItem="kbE-3e-xa6" firstAttribute="top" secondItem="Sfv-Ok-eCf" secondAttribute="top" constant="150" id="2C4-Mx-SV5"/>
+                            <constraint firstItem="Sfv-Ok-eCf" firstAttribute="trailing" secondItem="kbE-3e-xa6" secondAttribute="trailing" constant="20" id="Kd7-Vm-FML"/>
                             <constraint firstItem="Sfv-Ok-eCf" firstAttribute="trailing" secondItem="yUm-5N-lGQ" secondAttribute="trailing" id="QBq-av-pCy"/>
                             <constraint firstItem="3dm-sF-qbo" firstAttribute="centerY" secondItem="zAp-S8-SEU" secondAttribute="centerY" id="a0H-Be-8Jc"/>
                             <constraint firstItem="Sfv-Ok-eCf" firstAttribute="bottom" secondItem="yUm-5N-lGQ" secondAttribute="bottom" id="gpC-UT-7BE"/>
                             <constraint firstItem="yUm-5N-lGQ" firstAttribute="leading" secondItem="Sfv-Ok-eCf" secondAttribute="leading" id="pB8-BM-Che"/>
+                            <constraint firstItem="kbE-3e-xa6" firstAttribute="leading" secondItem="Sfv-Ok-eCf" secondAttribute="leading" constant="20" id="qwP-PW-HRd"/>
                             <constraint firstItem="yUm-5N-lGQ" firstAttribute="top" secondItem="Sfv-Ok-eCf" secondAttribute="top" id="vKP-8Y-Nb1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="3dm-sF-qbo" id="pIg-1X-gEo"/>
                         <outlet property="contentView" destination="yUm-5N-lGQ" id="3Td-Lb-W4M"/>
+                        <outlet property="errLabel" destination="kbE-3e-xa6" id="cAh-fT-Yft"/>
                         <outlet property="tableView" destination="khS-V4-oeV" id="nBx-UY-ETI"/>
                     </connections>
                 </viewController>

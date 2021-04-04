@@ -77,8 +77,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initVM()
         configureTableView()
+        initVM()
         configurePopJoke()
         configureNavBar()
         configureSideMenu()
@@ -151,6 +151,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func initVM() {
         viewModel.didRecieveRandomRecipe = { [weak self] in
             guard let self = self else { return }
+            self.tableView.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
@@ -204,6 +205,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = 280
         tableView.separatorStyle = .none
         tableView.tableHeaderView = headerView
+        tableView.setupRefresh()
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
@@ -217,6 +220,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         popTip?.shouldDismissOnTap = true
     }
     
+    @objc func refresh(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.getRecipes(pagination: false)
+            self.viewModel.getJoke()
+        }
+    }
     
     @objc func handleTrivia() {
         self.popTip?.show(text: popTip?.text ?? "Nothing is here", direction: .up, maxWidth: 250, in: tableView.tableFooterView!, from: tipButton.frame)

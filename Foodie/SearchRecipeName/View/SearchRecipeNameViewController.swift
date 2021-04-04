@@ -11,6 +11,7 @@ import SDWebImage
 
 class SearchRecipeNameViewController: UIViewController {
 
+    @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -56,7 +57,10 @@ class SearchRecipeNameViewController: UIViewController {
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             guard let self = self else { return }
-            print(self.viewModel.errorMessage!)
+            self.errLabel.text = self.viewModel.errorMessage
+            self.activityIndicator.stopAnimating()
+            self.contentView.alpha = 0
+
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }

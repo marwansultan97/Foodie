@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RWb-o1-IWd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSz-Ff-szY">
+                                <rect key="frame" x="20" y="194" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-1h-veb">
                                 <rect key="frame" x="187" y="428" width="40" height="40"/>
                                 <constraints>
@@ -44,10 +51,13 @@
                         <constraints>
                             <constraint firstItem="0Wr-1h-veb" firstAttribute="centerY" secondItem="H6u-7P-skp" secondAttribute="centerY" id="2rs-bl-RSP"/>
                             <constraint firstItem="hWB-8L-iMZ" firstAttribute="leading" secondItem="jop-uc-vD9" secondAttribute="leading" id="3ab-5u-D3b"/>
+                            <constraint firstItem="nSz-Ff-szY" firstAttribute="top" secondItem="jop-uc-vD9" secondAttribute="top" constant="150" id="9MC-yJ-jec"/>
                             <constraint firstItem="jop-uc-vD9" firstAttribute="trailing" secondItem="hWB-8L-iMZ" secondAttribute="trailing" id="9Pi-Dn-IdW"/>
                             <constraint firstItem="0Wr-1h-veb" firstAttribute="centerX" secondItem="H6u-7P-skp" secondAttribute="centerX" id="Ohn-yC-Z1V"/>
                             <constraint firstItem="jop-uc-vD9" firstAttribute="bottom" secondItem="hWB-8L-iMZ" secondAttribute="bottom" id="SQl-QP-mn6"/>
+                            <constraint firstItem="jop-uc-vD9" firstAttribute="trailing" secondItem="nSz-Ff-szY" secondAttribute="trailing" constant="20" id="UD7-xa-PL0"/>
                             <constraint firstItem="hWB-8L-iMZ" firstAttribute="top" secondItem="jop-uc-vD9" secondAttribute="top" id="jNL-0H-4Ep"/>
+                            <constraint firstItem="nSz-Ff-szY" firstAttribute="leading" secondItem="jop-uc-vD9" secondAttribute="leading" constant="20" id="uNm-Oc-McK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Similar Recipes" id="GxX-qf-cPv">
@@ -56,6 +66,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="0Wr-1h-veb" id="YHY-fv-mu8"/>
                         <outlet property="contentView" destination="hWB-8L-iMZ" id="jMP-37-GLy"/>
+                        <outlet property="errLabel" destination="nSz-Ff-szY" id="WKI-Hj-e43"/>
                         <outlet property="tableView" destination="Akt-SV-zmX" id="Bc2-nw-HMD"/>
                     </connections>
                 </viewController>

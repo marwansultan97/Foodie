@@ -11,6 +11,7 @@ import SDWebImage
 
 class MenuItemsSearchViewController: UIViewController {
 
+    @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -54,7 +55,11 @@ class MenuItemsSearchViewController: UIViewController {
             self?.tableView.reloadData()
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
-            print(self?.viewModel.errorMessage)
+            guard let self = self else { return }
+            self.errLabel.text = self.viewModel.errorMessage
+            self.activityIndicator.stopAnimating()
+            self.contentView.alpha = 0
+
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }
