@@ -34,12 +34,12 @@ class IngredientTableViewCell: UITableViewCell {
         if segmentIndex == 0 {
             let amountPerServing = ingredient.measures.us.amount / totalServingsDouble
 
-            ingredientName.text = String(format: "%.2f", (amountPerServing * servingsToDisplay)) + " " + ingredient.measures.us.unitLong + ingredient.originalName
+            ingredientName.text = String(format: "%.2f", (amountPerServing * servingsToDisplay)) + " " + ingredient.measures.us.unitLong + " " + ingredient.originalName
             
         } else {
             let amountPerServing = ingredient.measures.metric.amount / totalServingsDouble
             
-            ingredientName.text = String(format: "%.2f", (amountPerServing * servingsToDisplay)) + " " + ingredient.measures.metric.unitLong + ingredient.originalName
+            ingredientName.text = String(format: "%.2f", (amountPerServing * servingsToDisplay)) + " " + ingredient.measures.metric.unitLong + " " + ingredient.originalName
         }
         
     }

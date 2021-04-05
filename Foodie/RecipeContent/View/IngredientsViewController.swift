@@ -44,15 +44,20 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         servingTF.delegate = self
         servingTF.textColor = .black
         
-        segmentControl.backgroundColor = .white
-        segmentControl.tintColor = FlatSkyBlue()
-//        if #available(iOS 13.0, *) {
-//            segmentControl.selectedSegmentTintColor = .white
-//        }
+        if #available(iOS 13.0, *) {
+            segmentControl.backgroundColor = .white
+            segmentControl.selectedSegmentTintColor = FlatSkyBlue()
+        } else {
+            segmentControl.backgroundColor = .white
+            segmentControl.tintColor = FlatSkyBlue()
+        }
         let attributesNormal = [NSAttributedString.Key.foregroundColor : FlatSkyBlue()]
         let attributesSelected = [NSAttributedString.Key.foregroundColor : UIColor.white]
         segmentControl.setTitleTextAttributes(attributesNormal, for: .normal)
         segmentControl.setTitleTextAttributes(attributesSelected, for: .selected)
+        
+        
+        
         
     }
     
@@ -60,6 +65,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 70
+        tableView.estimatedRowHeight = 70
         tableView.allowsSelection = false
         tableView.backgroundColor = .white
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 80, bottom: 0, right: 80)

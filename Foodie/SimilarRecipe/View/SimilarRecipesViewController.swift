@@ -73,6 +73,7 @@ class SimilarRecipesViewController: UIViewController, UITableViewDelegate, UITab
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.rowHeight = 280
+        tableView.estimatedRowHeight = 280
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     

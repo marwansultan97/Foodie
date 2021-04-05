@@ -60,7 +60,7 @@ class MyConstants {
     let mealTypes = [
         "None",
         "dinner",
-        "lunch",
+        "launch",
         "dessert",
         "appetizer",
         "salad",

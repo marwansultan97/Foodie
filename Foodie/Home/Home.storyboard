@@ -62,7 +62,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Foodie" largeTitleDisplayMode="never" id="n5X-tk-gl1">
-                        <barButtonItem key="backBarButtonItem" title=" " id="vxY-oB-crv"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="vxY-oB-crv"/>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="1J6-6K-yd5" id="dgl-XK-29l"/>
@@ -80,7 +80,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TAn-YF-ZYe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4W1-9b-qJJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="Material_Restaurant" id="4W1-9b-qJJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="labelColor"/>
@@ -96,6 +96,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Material_Restaurant" width="44" height="44"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

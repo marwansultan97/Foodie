@@ -188,8 +188,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureNavBar() {
         let button = UIBarButtonItem(image: UIImage(named: "SF_line_horizontal_3_decrease_circle_fill"), style: .plain, target: self, action: #selector(showSideMenu))
         navigationItem.leftBarButtonItem = button
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.barTintColor = FlatNavyBlue()
+        navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: FlatWhite()]
         
@@ -256,6 +255,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tabbarVC = storyboard.instantiateInitialViewController() as! UITabBarController
         let overviewVC = tabbarVC.viewControllers?.first as? OverviewViewController
         overviewVC?.id = recipeSelected
+        tabbarVC.title = "Recipe Details"
         navigationController?.pushViewController(tabbarVC, animated: true)
     }
 

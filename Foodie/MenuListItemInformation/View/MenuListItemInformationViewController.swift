@@ -78,9 +78,8 @@ class MenuListItemInformationViewController: UIViewController {
             break
         case .changed:
             viewTranslation = sender.translation(in: view)
-            print(viewTranslation.y)
             if viewTranslation.y > 0 {
-                UIView.animate(withDuration: 0.00001,
+                UIView.animate(withDuration: 0,
                                delay: 0,
                                usingSpringWithDamping: 0.8,
                                initialSpringVelocity: 1,

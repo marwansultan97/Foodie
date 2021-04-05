@@ -109,6 +109,7 @@
                 <outlet property="recipeImage" destination="OJ5-n5-npJ" id="Qt6-VW-Jl1"/>
                 <outlet property="recipeName" destination="KJ3-Z6-w4o" id="otu-It-ZJh"/>
                 <outlet property="similarRecipesButton" destination="zFC-ND-k7t" id="RaQ-RD-bSH"/>
+                <outlet property="stopwatchImageView" destination="vhV-9i-SsN" id="LGK-hm-LEt"/>
                 <outlet property="timeLabel" destination="7jH-q2-AAL" id="xAd-z6-caN"/>
             </connections>
             <point key="canvasLocation" x="123.18840579710145" y="158.70535714285714"/>

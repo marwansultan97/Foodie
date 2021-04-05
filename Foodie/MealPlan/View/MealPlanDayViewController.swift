@@ -94,7 +94,7 @@ class MealPlanDayViewController: UIViewController {
         filterView.layer.shadowOpacity = 1
         filterView.layer.shadowColor = UIColor.black.cgColor
         filterView.layer.shadowRadius = 2
-        filterView.backgroundColor = FlatNavyBlue()
+        filterView.backgroundColor = FlatBlack()
         
         caloriesTF.backgroundColor = .clear
         caloriesTF.textColor = .white
@@ -110,6 +110,7 @@ class MealPlanDayViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white
         tableView.rowHeight = 270
+        tableView.estimatedRowHeight = 270
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }

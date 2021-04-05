@@ -104,7 +104,7 @@ class OverviewViewController: UIViewController, UICollectionViewDelegate, UIColl
     //MARK: - Configure UI
     func configureUI() {
         title = "Overview"
-        self.tabBarController?.tabBar.barTintColor = FlatNavyBlue()
+        self.tabBarController?.tabBar.barTintColor = .black
         tabBarController?.tabBar.tintColor = .white
         recipeImageView.layer.cornerRadius = 20
         recipeName.adjustsFontSizeToFitWidth = true

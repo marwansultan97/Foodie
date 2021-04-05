@@ -121,6 +121,7 @@ class SearchRecipeFilterViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.rowHeight = 280
+        tableView.estimatedRowHeight = 280
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
@@ -322,6 +323,8 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
         let imageURL = URL(string: "https://spoonacular.com/recipeImages/\(element.id)-556x370.jpg")
         cell.recipeImage.sd_setImage(with: imageURL, completed: nil)
         cell.recipeName.text = element.title
+        cell.timeLabel.alpha = 0
+        cell.stopwatchImageView.alpha = 0
         cell.recipeName.adjustsFontSizeToFitWidth = true
         cell.recipeName.minimumScaleFactor = 0.5
         return cell

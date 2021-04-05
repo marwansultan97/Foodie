@@ -52,8 +52,7 @@ class MealPlanViewModel {
                 guard let self = self else { return }
                 self.isLoading = false
                 if let err = err {
-                    print(err)
-                    self.errorMessage = "Something went wrong..."
+                    self.errorMessage = err
                 } else {
                     guard let result = result else { return }
                     self.mealPlan = result

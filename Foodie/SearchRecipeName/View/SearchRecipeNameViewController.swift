@@ -25,14 +25,20 @@ class SearchRecipeNameViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/1.5, height: 30))
         searchbar.delegate = self
-        searchbar.barTintColor = FlatNavyBlue()
+        searchbar.barTintColor = .black
         if #available(iOS 13.0, *) {
+            searchbar.searchTextField.backgroundColor = .black
             searchbar.searchTextField.leftView?.tintColor = FlatWhite()
             searchbar.searchTextField.textColor = FlatWhite()
-            searchbar.searchTextField.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.1)
             searchbar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Enter recipe name...", attributes: [NSAttributedString.Key.foregroundColor : FlatWhite().withAlphaComponent(0.75)])
         } else {
-            
+            searchbar.tintColor = .white
+            if let textField = searchbar.value(forKey: "searchField") as? UITextField {
+                textField.backgroundColor = .black
+                textField.leftView?.tintColor = FlatWhite()
+                textField.textColor = FlatWhite()
+                textField.attributedPlaceholder = NSAttributedString(string: "Enter recipe name...", attributes: [NSAttributedString.Key.foregroundColor : FlatWhite().withAlphaComponent(0.75)])
+            }
         }
         searchbar.autocapitalizationType = .none
         searchbar.showsCancelButton = true
@@ -92,6 +98,7 @@ class SearchRecipeNameViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white
         tableView.rowHeight = 280
+        tableView.estimatedRowHeight = 280
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }

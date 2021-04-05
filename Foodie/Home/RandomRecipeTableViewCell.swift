@@ -17,6 +17,7 @@ class RandomRecipeTableViewCell: UITableViewCell {
     
     
     
+    @IBOutlet weak var stopwatchImageView: UIImageView!
     @IBOutlet weak var similarRecipesButton: UIButton!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!

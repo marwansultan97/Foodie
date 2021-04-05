@@ -57,7 +57,7 @@ class SimilarRecipesViewModel {
                 print("Getting Data vm")
                 self.isLoading = false
                 if let err = err {
-                    self.errorMessage = "\(err)"
+                    self.errorMessage = err
                 } else {
                     guard let result = result else { return }
                     self.similarRecipes = result

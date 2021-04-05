@@ -77,6 +77,7 @@ class MenuListItemsViewController: UIViewController, UITableViewDataSource, UITa
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.rowHeight = 280
+        tableView.estimatedRowHeight = 280
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 

@@ -76,7 +76,7 @@ class MealPlanWeekViewController: UIViewController {
         filterView.layer.shadowOpacity = 1
         filterView.layer.shadowColor = UIColor.black.cgColor
         filterView.layer.shadowRadius = 2
-        filterView.backgroundColor = FlatNavyBlue()
+        filterView.backgroundColor = FlatBlack()
         filterView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
         caloriesTF.backgroundColor = .clear
@@ -93,6 +93,7 @@ class MealPlanWeekViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white
         tableView.rowHeight = 320
+        tableView.estimatedRowHeight = 320
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }

@@ -53,7 +53,7 @@ class SearchRecipeNameViewModel {
                 guard let self = self else { return }
                 self.isLoading = false
                 if let err = err {
-                    self.errorMessage = "\(err)"
+                    self.errorMessage = err
                 } else {
                     guard let result = result else { return }
                     print("getting data")
