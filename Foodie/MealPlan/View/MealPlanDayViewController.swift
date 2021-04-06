@@ -52,7 +52,9 @@ class MealPlanDayViewController: UIViewController {
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             guard let self = self else { return }
-            self.errLabel.text = self.viewModel.errorMessage
+            let mutableAtt = NSMutableAttributedString(string: "Oops.\n\(self.viewModel.errorMessage!)")
+            mutableAtt.setAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 25, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor.black], range: NSRange(location: 0, length: 5))
+            self.errLabel.attributedText = mutableAtt
             self.activityIndicator.stopAnimating()
             self.contentView.alpha = 0
 
@@ -66,6 +68,7 @@ class MealPlanDayViewController: UIViewController {
             guard let self = self else { return }
             if self.viewModel.isLoading {
                 self.activityIndicator.startAnimating()
+                self.errLabel.text = ""
             } else {
                 self.activityIndicator.stopAnimating()
             }

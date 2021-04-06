@@ -68,9 +68,12 @@ class SearchRecipeFilterViewModel {
                 }
                 self.isLoading = false
                 if let err = err {
-                    self.errorMessage = err
+                    self.errorMessage = err.description
                 } else {
-                    guard let result = result else { return }
+                    guard let result = result, !result.results.isEmpty else {
+                        self.errorMessage = "No results found."
+                        return
+                    }
                     self.totalResult = result.totalResults
                     if pagination {
                         self.recipeElements.append(contentsOf: result.results)

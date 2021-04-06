@@ -13,6 +13,7 @@ import SideMenuSwift
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     
+    @IBOutlet weak var retryButton: UIButton!
     @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -83,6 +84,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         configureNavBar()
         configureSideMenu()
         setupNotifications()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -156,9 +158,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             guard let self = self else { return }
-            self.errLabel.text = self.viewModel.errorMessage
+            let mutableAtt = NSMutableAttributedString(string: "Oops.\n\(self.viewModel.errorMessage!)")
+            mutableAtt.setAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 25, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor.black], range: NSRange(location: 0, length: 5))
+            self.errLabel.attributedText = mutableAtt
             self.activityIndicator.stopAnimating()
             self.contentView.alpha = 0
+            self.retryButton.alpha = 1
         }
         viewModel.didRecieveContentAlpha = { [weak self] in
             guard let self = self else { return }
@@ -169,6 +174,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if self.viewModel.isLoading {
                 self.activityIndicator.startAnimating()
                 self.contentView.alpha = 0
+                self.retryButton.alpha = 0
+                self.errLabel.text = ""
             } else {
                 self.activityIndicator.stopAnimating()
                 self.contentView.alpha = 1
@@ -178,8 +185,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.popTip?.text = self.viewModel.randomJoke?.text
         }
         
-//        viewModel.getRecipes(pagination: false)
-//        viewModel.getJoke()
+        viewModel.getRecipes(pagination: false)
+        viewModel.getJoke()
         
     }
     
@@ -229,6 +236,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func handleTrivia() {
         self.popTip?.show(text: popTip?.text ?? "Nothing is here", direction: .up, maxWidth: 250, in: tableView.tableFooterView!, from: tipButton.frame)
     }
+    
+    @IBAction func retryButtonTapped(_ sender: UIButton) {
+        viewModel.getRecipes(pagination: false)
+        viewModel.getJoke()
+    }
+    
     
     
     //MARK: - TableView Configurations

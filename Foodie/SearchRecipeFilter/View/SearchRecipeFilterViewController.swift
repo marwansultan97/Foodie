@@ -77,7 +77,9 @@ class SearchRecipeFilterViewController: UIViewController {
         }
         viewModel.didRecieveErrorMessage = { [weak self] in
             guard let self = self else { return }
-            self.errLabel.text = self.viewModel.errorMessage
+            let mutableAtt = NSMutableAttributedString(string: "Oops.\n\(self.viewModel.errorMessage!)")
+            mutableAtt.setAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 25, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor.black], range: NSRange(location: 0, length: 5))
+            self.errLabel.attributedText = mutableAtt
             self.activityIndicator.stopAnimating()
             self.contentView.alpha = 0
 
@@ -90,6 +92,7 @@ class SearchRecipeFilterViewController: UIViewController {
             guard let self = self else { return }
             if self.viewModel.isLoading {
                 self.activityIndicator.startAnimating()
+                self.errLabel.text = ""
             } else {
                 self.activityIndicator.stopAnimating()
             }
@@ -109,7 +112,7 @@ class SearchRecipeFilterViewController: UIViewController {
             URLQueryItem(name: "includeIngredients", value: ""), // 5
             URLQueryItem(name: "offset", value: "0"), // 6
             URLQueryItem(name: "sort", value: "popularity"), // 7
-            URLQueryItem(name: "number", value: "5") // 8
+            URLQueryItem(name: "number", value: "4") // 8
         ]
     }
     
@@ -369,7 +372,7 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
             return
         }
         self.tableView.tableFooterView = viewModel.isPaginating ? self.footerPaginationView : UIView()
-        if postition > contentHeight - scrollViewHeight + 70 {
+        if postition > contentHeight - scrollViewHeight {
             guard !viewModel.isPaginating else { return }
             viewModel.getData(urlComponents: self.url!, pagination: true)
         }

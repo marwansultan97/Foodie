@@ -17,10 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Y-N9-KmA">
+                                <rect key="frame" x="132" y="288" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.043137254901960784" green="0.090196078431372548" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9p7-8A-kQt"/>
+                                    <constraint firstAttribute="height" constant="50" id="bed-Oj-gD2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Retry">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="retryButtonTapped:" destination="Ubc-ON-Kxp" eventType="touchUpInside" id="ynF-nV-odW"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCd-sy-VWu">
                                 <rect key="frame" x="20" y="238" width="374" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1J6-6K-yd5">
@@ -52,10 +67,12 @@
                         <constraints>
                             <constraint firstItem="9PJ-w1-DPj" firstAttribute="leading" secondItem="r48-kO-uTk" secondAttribute="leading" id="01d-kv-su7"/>
                             <constraint firstItem="1J6-6K-yd5" firstAttribute="centerX" secondItem="deZ-ZA-7yf" secondAttribute="centerX" id="AK5-gk-e1a"/>
+                            <constraint firstItem="Y7Y-N9-KmA" firstAttribute="centerX" secondItem="deZ-ZA-7yf" secondAttribute="centerX" id="BlW-KE-A6d"/>
                             <constraint firstItem="r48-kO-uTk" firstAttribute="bottom" secondItem="9PJ-w1-DPj" secondAttribute="bottom" id="HlN-ag-2Yu"/>
                             <constraint firstItem="9PJ-w1-DPj" firstAttribute="top" secondItem="r48-kO-uTk" secondAttribute="top" id="LFd-8q-At6"/>
                             <constraint firstItem="FCd-sy-VWu" firstAttribute="top" secondItem="r48-kO-uTk" secondAttribute="top" constant="150" id="MOT-2n-DmS"/>
                             <constraint firstItem="FCd-sy-VWu" firstAttribute="leading" secondItem="r48-kO-uTk" secondAttribute="leading" constant="20" id="PRs-4J-Kt2"/>
+                            <constraint firstItem="Y7Y-N9-KmA" firstAttribute="top" secondItem="FCd-sy-VWu" secondAttribute="bottom" constant="50" id="SQf-c3-Ru4"/>
                             <constraint firstItem="r48-kO-uTk" firstAttribute="trailing" secondItem="9PJ-w1-DPj" secondAttribute="trailing" id="VMC-Vj-4AJ"/>
                             <constraint firstItem="1J6-6K-yd5" firstAttribute="centerY" secondItem="deZ-ZA-7yf" secondAttribute="centerY" id="af0-c6-ZGA"/>
                             <constraint firstItem="r48-kO-uTk" firstAttribute="trailing" secondItem="FCd-sy-VWu" secondAttribute="trailing" constant="20" id="mYn-Bg-5dT"/>
@@ -68,6 +85,7 @@
                         <outlet property="activityIndicator" destination="1J6-6K-yd5" id="dgl-XK-29l"/>
                         <outlet property="contentView" destination="9PJ-w1-DPj" id="QzP-Ew-yc9"/>
                         <outlet property="errLabel" destination="FCd-sy-VWu" id="i7Q-Ry-rFa"/>
+                        <outlet property="retryButton" destination="Y7Y-N9-KmA" id="vbp-cW-KJq"/>
                         <outlet property="tableView" destination="aJm-An-EvD" id="4if-Tg-nHL"/>
                     </connections>
                 </viewController>

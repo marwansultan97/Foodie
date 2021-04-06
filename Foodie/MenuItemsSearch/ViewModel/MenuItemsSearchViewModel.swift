@@ -65,9 +65,12 @@ class MenuItemsSearchViewModel {
                 }
                 self.isLoading = false
                 if let err = err {
-                    self.errorMessage = err
+                    self.errorMessage = err.description
                 } else {
-                    guard let menuItems = result?.menuItems else { return }
+                    guard let menuItems = result?.menuItems, !menuItems.isEmpty else {
+                        self.errorMessage = "No results found."
+                        return
+                    }
                     for item in menuItems {
                         if !self.menuItems.contains(item) {
                             self.menuItems.append(item)

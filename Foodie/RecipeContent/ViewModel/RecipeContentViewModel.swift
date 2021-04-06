@@ -56,7 +56,7 @@ class RecipeContentViewModel {
             guard let self = self else { return }
             self.isLoading = false
             if let err = err {
-                self.errorMessage = err
+                self.errorMessage = err.description
             } else {
                 guard let result = result else { return }
                 self.recipeContent = result

@@ -37,13 +37,13 @@ enum Endpoints {
             return MyConstants.shared.apiBody + "/recipes/\(id)/information?apiKey=\(MyConstants.shared.apiKey)"
             
         case .autoComplete(let query):
-            return MyConstants.shared.apiBody + "/recipes/autocomplete?apiKey=\(MyConstants.shared.apiKey)&number=50&query=\(query)"
+            return MyConstants.shared.apiBody + "/recipes/autocomplete?apiKey=\(MyConstants.shared.apiKey)&number=10&query=\(query)"
             
         case .complexSearch:
             return MyConstants.shared.apiBody + "/recipes/complexSearch"
             
         case .menuItemSearch(let query, let offset):
-            return MyConstants.shared.apiBody + "/food/menuItems/search?apiKey=\(MyConstants.shared.apiKey)&query=\(query)&number=1&offset=\(offset)"
+            return MyConstants.shared.apiBody + "/food/menuItems/search?apiKey=\(MyConstants.shared.apiKey)&query=\(query)&number=5&offset=\(offset)"
             
         case .menuItemInformation(let id):
             return MyConstants.shared.apiBody + "/food/menuItems/\(id)?apiKey=\(MyConstants.shared.apiKey)"
