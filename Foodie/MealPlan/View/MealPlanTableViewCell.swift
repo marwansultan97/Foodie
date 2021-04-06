@@ -17,7 +17,7 @@ class MealPlanTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorView.backgroundColor = FlatSkyBlueDark()
+        
         colorView.layer.cornerRadius = 20
         colorView.layer.masksToBounds = false
         colorView.layer.shadowColor = UIColor.black.cgColor

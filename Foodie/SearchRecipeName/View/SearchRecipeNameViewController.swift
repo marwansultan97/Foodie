@@ -120,6 +120,7 @@ extension SearchRecipeNameViewController: UITableViewDelegate, UITableViewDataSo
         let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeElement.id)-556x370.jpg")
         cell.recipeImage.sd_setImage(with: url, completed: nil)
         cell.recipeName.text = recipeElement.title
+        cell.selectionStyle = .none
         return cell
     }
     

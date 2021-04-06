@@ -93,6 +93,7 @@ class MenuListItemsViewController: UIViewController, UITableViewDataSource, UITa
         cell.recipeName.text = viewModel.listItems[indexPath.row].title
         cell.recipeName.adjustsFontSizeToFitWidth = true
         cell.similarRecipesButton.alpha = 0
+        cell.selectionStyle = .none
         return cell
     }
     

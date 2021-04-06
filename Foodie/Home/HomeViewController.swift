@@ -178,8 +178,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.popTip?.text = self.viewModel.randomJoke?.text
         }
         
-        viewModel.getRecipes(pagination: false)
-        viewModel.getJoke()
+//        viewModel.getRecipes(pagination: false)
+//        viewModel.getJoke()
         
     }
     

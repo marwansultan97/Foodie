@@ -46,12 +46,12 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         if #available(iOS 13.0, *) {
             segmentControl.backgroundColor = .white
-            segmentControl.selectedSegmentTintColor = FlatSkyBlue()
+            segmentControl.selectedSegmentTintColor = UIColor(rgb: 0x0B173D)
         } else {
             segmentControl.backgroundColor = .white
-            segmentControl.tintColor = FlatSkyBlue()
+            segmentControl.tintColor = UIColor(rgb: 0x0B173D)
         }
-        let attributesNormal = [NSAttributedString.Key.foregroundColor : FlatSkyBlue()]
+        let attributesNormal = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x0B173D)]
         let attributesSelected = [NSAttributedString.Key.foregroundColor : UIColor.white]
         segmentControl.setTitleTextAttributes(attributesNormal, for: .normal)
         segmentControl.setTitleTextAttributes(attributesSelected, for: .selected)

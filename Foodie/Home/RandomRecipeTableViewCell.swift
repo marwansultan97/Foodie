@@ -38,7 +38,6 @@ class RandomRecipeTableViewCell: UITableViewCell {
         recipeImage.layer.shadowOpacity = 1
         recipeImage.layer.shadowRadius = 1
         
-        colorView.backgroundColor = FlatSkyBlueDark()
         colorView.layer.masksToBounds = false
         colorView.layer.cornerRadius = 30
         colorView.layer.shadowColor = UIColor.black.cgColor

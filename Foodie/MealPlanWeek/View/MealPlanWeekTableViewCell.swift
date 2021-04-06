@@ -69,8 +69,7 @@ class MealPlanWeekTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MealPlanWeekCollectionViewCell
         let meal = meals[indexPath.row]
-        cell.configureCell(meal: meal)
-        
+        cell.configureCell(meal: meal)        
         return cell
     }
     

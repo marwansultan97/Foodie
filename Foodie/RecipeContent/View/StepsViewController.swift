@@ -82,7 +82,7 @@ class StepsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
-        headerView.backgroundColor = UIColor.flatBlue()
+        headerView.backgroundColor = UIColor(rgb: 0x0B173D)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         label.text = section == 0 ? "Equipments you need" : "How to make"
         label.textAlignment = .center
@@ -100,23 +100,11 @@ class StepsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.section == 0 ? 80 : UITableView.automaticDimension
     }
-    
-    
-    
+  
     
 
 }
 
-extension RangeReplaceableCollection where Element: Hashable {
-    var orderedSet: Self {
-        var set = Set<Element>()
-        return filter { set.insert($0).inserted }
-    }
-    mutating func removeDuplicates() {
-        var set = Set<Element>()
-        removeAll { !set.insert($0).inserted }
-    }
-}
 
 
 

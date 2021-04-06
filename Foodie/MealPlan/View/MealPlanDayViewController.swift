@@ -138,6 +138,7 @@ extension MealPlanDayViewController: UITableViewDelegate, UITableViewDataSource,
         cell.mealIcon.sd_setImage(with: url, completed: nil)
         cell.mealNameLabel.text = meal.title
         cell.timeLabel.text = "\(meal.readyInMinutes) Min"
+        cell.selectionStyle = .none
         return cell
     }
     

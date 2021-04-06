@@ -119,6 +119,7 @@ extension MenuItemsSearchViewController: UITableViewDelegate, UITableViewDataSou
         cell.recipeImage.sd_setImage(with: url, completed: nil)
         cell.recipeName.text = menuItem.title
         cell.similarRecipesButton.alpha = 0
+        cell.selectionStyle = .none
         return cell
     }
     

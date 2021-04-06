@@ -126,16 +126,16 @@ class SearchRecipeFilterViewController: UIViewController {
     }
     
     func configureButtons() {
-        readyTimeButton.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.2)
+        readyTimeButton.backgroundColor = UIColor(rgb: 0x0B173D).darken(byPercentage: 0.2)
         readyTimeButton.layer.cornerRadius = 15
         
-        dietButton.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.2)
+        dietButton.backgroundColor = UIColor(rgb: 0x0B173D).darken(byPercentage: 0.2)
         dietButton.layer.cornerRadius = 15
         
-        cuisineButton.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.2)
+        cuisineButton.backgroundColor = UIColor(rgb: 0x0B173D).darken(byPercentage: 0.2)
         cuisineButton.layer.cornerRadius = 15
         
-        mealTypeButton.backgroundColor = FlatNavyBlue().darken(byPercentage: 0.2)
+        mealTypeButton.backgroundColor = UIColor(rgb: 0x0B173D).darken(byPercentage: 0.2)
         mealTypeButton.layer.cornerRadius = 15
     }
     
@@ -146,12 +146,11 @@ class SearchRecipeFilterViewController: UIViewController {
         ingredientsTF.attributedPlaceholder = NSAttributedString(string: "Example: cheese,tomato", attributes: [NSAttributedString.Key.foregroundColor : FlatWhite().withAlphaComponent(0.75)])
         
         
-        filterView.backgroundColor = FlatNavyBlue()
+        filterView.backgroundColor = UIColor(rgb: 0x0B173D)
         filterViewHeight.constant = 0
-        filterView.alpha = 0
         filterView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
-        searchButton.backgroundColor = FlatBlue().darken(byPercentage: 0.05)
+        searchButton.backgroundColor = UIColor(rgb: 0x0B173D).darken(byPercentage: 0.05)
         searchButton.layer.cornerRadius = 15
         searchButton.layer.borderColor = UIColor.white.cgColor
         searchButton.layer.borderWidth = 1.5
@@ -200,9 +199,11 @@ class SearchRecipeFilterViewController: UIViewController {
             if index == 0 {
                 self.url?.queryItems?[2].value = ""
                 self.dietButton.setTitle("Diet", for: .normal)
+                self.dietButton.titleLabel?.adjustsFontSizeToFitWidth = true
             } else {
                 self.url?.queryItems?[2].value = item
-                self.dietButton.setTitle(item, for: .normal)
+                let name = String(item.prefix(7)) + ".."
+                self.dietButton.setTitle(name, for: .normal)
             }
             print(self.url!)
         }
@@ -262,13 +263,11 @@ class SearchRecipeFilterViewController: UIViewController {
     @objc func showFilters() {
         if !isCollapsed {
             UIView.animate(withDuration: 0.5) {
-                self.filterViewHeight.constant = self.view.frame.height - 200
-                self.filterView.alpha = 1
+                self.filterViewHeight.constant = 470
                 self.view.layoutIfNeeded()
             }
         } else {
             UIView.animate(withDuration: 0.5) {
-                self.filterView.alpha = 0
                 self.filterViewHeight.constant = 0
                 self.view.layoutIfNeeded()
             }
@@ -298,7 +297,6 @@ class SearchRecipeFilterViewController: UIViewController {
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         isCollapsed.toggle()
         UIView.animate(withDuration: 0.5) {
-            self.filterView.alpha = 0
             self.filterViewHeight.constant = 0
             self.view.layoutIfNeeded()
         }
@@ -327,6 +325,7 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
         cell.stopwatchImageView.alpha = 0
         cell.recipeName.adjustsFontSizeToFitWidth = true
         cell.recipeName.minimumScaleFactor = 0.5
+        cell.selectionStyle = .none
         return cell
     }
     

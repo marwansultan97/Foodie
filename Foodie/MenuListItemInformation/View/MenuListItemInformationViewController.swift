@@ -17,6 +17,7 @@ class MenuListItemInformationViewController: UIViewController {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    private let cellIdentifier = "MenuListItemInformation"
     var delegate: BackDelegate?
     var viewTranslation = CGPoint(x: 0, y: 0)
     
@@ -54,7 +55,7 @@ class MenuListItemInformationViewController: UIViewController {
     
     //MARK: - UI Configurations
     func configureUI() {
-        contentViewHeight.constant = UIScreen.main.bounds.height/4 * 3 - 100
+        contentViewHeight.constant = UIScreen.main.bounds.height/4 * 3 - 50
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissal)))
         itemName.adjustsFontSizeToFitWidth = true
     }
@@ -65,7 +66,6 @@ class MenuListItemInformationViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     
@@ -121,11 +121,10 @@ extension MenuListItemInformationViewController: UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MenuListItemInformationTableViewCell
         let nutrient = viewModel?.itemInformation?.nutrition.nutrients[indexPath.row]
-        cell.textLabel?.text = "\(nutrient!.name): \(nutrient!.amount) \(nutrient!.unit)"
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.nutritionsLabel.text = "\(nutrient!.name): \(nutrient!.amount) \(nutrient!.unit)"
+        cell.nutritionsLabel.adjustsFontSizeToFitWidth = true
         return cell
     }
     
