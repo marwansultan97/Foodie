@@ -184,7 +184,6 @@ class SearchRecipeFilterViewController: UIViewController {
                 self.url?.queryItems?[1].value = item
                 self.cuisineButton.setTitle(item, for: .normal)
             }
-            print(self.url!)
         }
         
         dietDropDown.anchorView = dietButton
@@ -208,7 +207,6 @@ class SearchRecipeFilterViewController: UIViewController {
                 let name = String(item.prefix(7)) + ".."
                 self.dietButton.setTitle(name, for: .normal)
             }
-            print(self.url!)
         }
         
         mealTypesDropDown.anchorView = mealTypeButton
@@ -230,7 +228,6 @@ class SearchRecipeFilterViewController: UIViewController {
                 self.url?.queryItems?[3].value = item
                 self.mealTypeButton.setTitle(item, for: .normal)
             }
-            print(self.url!)
         }
         
         timeDropDown.anchorView = readyTimeButton
@@ -253,7 +250,6 @@ class SearchRecipeFilterViewController: UIViewController {
                 self.url?.queryItems?[4].value = time
                 self.readyTimeButton.setTitle(item, for: .normal)
             }
-            print(self.url!)
         }
     }
     
@@ -347,7 +343,6 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
         view.endEditing(true)
         guard let text = textField.text else { return false }
         self.url?.queryItems?[5].value = text
-        print(self.url!)
         return true
     }
     
@@ -360,7 +355,6 @@ extension SearchRecipeFilterViewController: UITextFieldDelegate, UITableViewDele
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
         self.url?.queryItems?[5].value = text
-        print(self.url!)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

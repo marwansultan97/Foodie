@@ -115,7 +115,6 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
                                 SideMenuOptions(title: "Day Plan",
                                                 image: nil,
                                                 handler: {
-                                                    print("day")
                                                     self.sideMenuController?.hideMenu()
                                                     NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "MealPlanDay"), object: nil)
                                                 },
@@ -124,7 +123,6 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
                                 SideMenuOptions(title: "Week Plan",
                                                 image: nil,
                                                 handler: {
-                                                    print("week")
                                                     self.sideMenuController?.hideMenu()
                                                     NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "MealPlanWeek"), object: nil)
                                                 },

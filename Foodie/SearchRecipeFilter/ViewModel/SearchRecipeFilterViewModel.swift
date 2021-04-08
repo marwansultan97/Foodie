@@ -80,7 +80,6 @@ class SearchRecipeFilterViewModel {
                     } else {
                         self.recipeElements = result.results
                     }
-                    print("getting data")
                     self.contentAlpha = 1
                 }
             }

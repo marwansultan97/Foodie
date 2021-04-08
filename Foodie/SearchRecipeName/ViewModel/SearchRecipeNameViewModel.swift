@@ -59,7 +59,6 @@ class SearchRecipeNameViewModel {
                         self.errorMessage = "No results found."
                         return
                     }
-                    print("getting data")
                     self.recipeElements = result
                     self.contentAlpha = 1
                 }

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum ApiError: Error, CustomStringConvertible {
-    
     case noAuthorization
     case invalidData
     case betaVersion
@@ -18,7 +17,7 @@ enum ApiError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .invalidData: return "Invalid Recipe"
-        case .betaVersion: return "This is beta version, we ran out of recipes :(\ntry again tomorrow"
+        case .betaVersion: return "This is beta version,\nwe ran out of recipes :(\nPlease try again tomorrow..."
         case .noAuthorization: return "No authorization found."
         case .unknown: return "We encountered unexpected problem\n(Check internet connection)"
         }

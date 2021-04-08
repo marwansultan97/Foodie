@@ -39,7 +39,6 @@ class MenuListItemInformationViewModel {
         ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (result: MenuItemInformation?, err) in
             guard let self = self else { return }
             if let err = err {
-                print(err)
                 self.errorMessage = "There Is No Nutritions for this item"
             } else {
                 guard let result = result else { return }

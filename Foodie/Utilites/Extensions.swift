@@ -12,7 +12,6 @@ extension UICollectionView {
     
     func scrollToNearestVisibleCollectionViewCell() {
         self.decelerationRate = UIScrollView.DecelerationRate.fast
-        print(decelerationRate.rawValue)
         let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 2))
         var closestCellIndex = -1
         var closestDistance: Float = .greatestFiniteMagnitude

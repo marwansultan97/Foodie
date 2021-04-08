@@ -64,7 +64,6 @@ class HomeViewModel {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.7) {
             ApiServices.shared.getData(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { [weak self] (result: RandomRecipes?, err) in
                 guard let self = self else { return }
-                print("Getting Data vm")
                 if pagination {
                     self.isPaginating = false
                 }
