@@ -137,7 +137,7 @@ extension MealPlanWeekViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.row == 0 {
             cell.meals = mealPlan.week.saturday.meals
             cell.configureCell(day: mealPlan.week.saturday)
-            cell.dayLabel.text = "SaturDay"
+            cell.dayLabel.text = "Saturday"
             
         } else if indexPath.row == 1{
             cell.meals = mealPlan.week.sunday.meals

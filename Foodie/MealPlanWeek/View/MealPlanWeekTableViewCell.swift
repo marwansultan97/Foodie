@@ -56,6 +56,7 @@ class MealPlanWeekTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     }
     
     func configureCell(day: Day) {
+        self.dayLabel.adjustsFontSizeToFitWidth = true
         self.caloriesLabel.text = "Calories: \(day.nutrients.calories)"
         self.carbLabel.text = "Carbohydrates: \(day.nutrients.carbohydrates)"
         self.proteinLabel.text = "Proteins: \(day.nutrients.protein)"
