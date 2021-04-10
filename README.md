@@ -6,9 +6,11 @@
   </p>
   
  ## Hi There, This is Foodie - iOS Native App Written in Swift 5 and based on [SPOON ACULAR REST API](https://spoonacular.com/food-api) 🍕🍕
+ 
+ ## [App Store Link](https://apps.apple.com/us/app/foodie-creamy-recipes/id1562374424)
   
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-IOS%2012%2B-lightgrey?logo=Apple&style=for-the-badge"  /> <img src="https://img.shields.io/badge/App Store-In Review-blue?logo=App-Store&style=for-the-badge"  /> <img src="https://img.shields.io/badge/Language-Swift 5-orange?logo=Swift&style=for-the-badge"  />
+  <img src="https://img.shields.io/badge/Platform-IOS%2012%2B-lightgrey?logo=Apple&style=for-the-badge" />  <img src="https://img.shields.io/badge/App Store-Available-blue?logo=App-Store&style=for-the-badge" />  <img src="https://img.shields.io/badge/Language-Swift 5-orange?logo=Swift&style=for-the-badge"  />
   </p>
   
   _________________________
